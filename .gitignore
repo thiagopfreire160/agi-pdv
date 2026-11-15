@@ -1,0 +1,11 @@
+*.log
+.env
+coverage
+dist
+node_modules
+playwright-report
+test-results
+
+# Playwright
+apps/web/test-results
+.vite

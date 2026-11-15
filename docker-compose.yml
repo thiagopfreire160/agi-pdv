@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: nexo
+      POSTGRES_DB: nexo
+    ports:
+      - "5432:5432"
+    volumes:
+      - nexo_dados:/var/lib/postgresql/data
+      - ./infra/criar-banco-teste.sql:/docker-entrypoint-initdb.d/criar-banco-teste.sql:ro
+
+volumes:
+  nexo_dados:

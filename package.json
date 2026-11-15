@@ -1,0 +1,29 @@
+{
+  "name": "nexo-pdv",
+  "private": true,
+  "version": "1.0.0",
+  "description": "NEXO PDV — ponto de venda para pequeno comércio",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c green,blue \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm run dev -w apps/api",
+    "dev:web": "node -e \"process.exit(require('fs').existsSync('apps/web/package.json') ? 0 : 1)\" && npm run dev -w apps/web || echo 'apps/web ainda não existe — subindo só a API.'",
+    "db:up": "docker compose up -d",
+    "db:migrar": "npm run migrar -w apps/api",
+    "db:semente": "npm run semente -w apps/api --",
+    "admin:senha": "npm run redefinir-senha -w apps/api --",
+    "test": "npm run test --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "loja": "npm run build && npm run db:migrar && npm run start -w apps/api",
+    "iniciar": "npm run start -w apps/api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.5"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/marca/nexo-claro-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/marca/nexo-claro-192.png" />
+    <link rel="apple-touch-icon" href="/marca/nexo-claro-192.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1f5e3b" />
+    <title>NEXO PDV</title>
+    <script>
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem('nexo-tema'); } catch (e) {}
+        var escuro = t === 'escuro' || ((!t || t === 'sistema') && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (escuro) document.documentElement.classList.add('dark');
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="raiz"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "@nexo/api",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/servidor.ts",
+    "start": "node dist/servidor.js",
+    "build": "tsc -p tsconfig.json",
+    "migrar": "tsx src/cli/migrar.ts",
+    "semente": "tsx src/cli/semente.ts",
+    "redefinir-senha": "tsx src/cli/redefinir-senha-admin.ts",
+    "test": "vitest run",
+    "lint": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^11.1.5",
+    "@fastify/cors": "^11.4.3",
+    "@fastify/static": "^10.1.11",
+    "@node-rs/argon2": "^2.2.2",
+    "dotenv": "^18.0.10",
+    "fastify": "^5.12.8",
+    "kysely": "^0.29.9",
+    "pg": "^8.23.1",
+    "sharp": "^0.35.5",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}

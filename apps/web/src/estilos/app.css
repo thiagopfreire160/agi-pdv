@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+/* Plus Jakarta Sans servida localmente (funciona sem internet na loja) */
+@theme {
+  --font-sans: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --animate-entrar: entrar 160ms ease-out;
+  --animate-gaveta: gaveta 200ms ease-out;
+  --animate-pulsar: pulsar 1.4s ease-in-out infinite;
+}
+
+@keyframes entrar {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes gaveta {
+  from { transform: translateX(24px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes pulsar {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@layer base {
+  html, body, #raiz { height: 100%; }
+  body {
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    background: var(--fundo);
+    color: var(--texto);
+  }
+  button, [role="button"] { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+  :focus-visible { outline: 2px solid var(--primaria); outline-offset: 2px; }
+  input::placeholder, textarea::placeholder { color: var(--texto-3); opacity: 1; }
+  ::selection { background: color-mix(in srgb, var(--destaque) 30%, transparent); }
+}
+
+/* Barra de rolagem discreta */
+* { scrollbar-width: thin; scrollbar-color: var(--borda) transparent; }
+
+/* Card escuro (relógio do caixa) — sempre escuro, nos dois temas */
+.card-escuro {
+  background:
+    radial-gradient(90% 120% at 100% 0%, rgb(47 214 87 / 0.18) 0%, transparent 55%),
+    linear-gradient(160deg, #143d27 0%, #0f2e1e 60%, #0a1f14 100%);
+  color: #e8f1ec;
+}
+.dark .card-destaque { box-shadow: inset 0 0 0 1px rgb(110 229 138 / 0.12); }
+.dark .card-escuro { box-shadow: inset 0 0 0 1px rgb(110 229 138 / 0.10); }
+
+/* Curvas decorativas dos cards verdes (camada por cima do gradiente, abaixo do conteúdo) */
+.ondas { position: relative; isolation: isolate; overflow: hidden; }
+.ondas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(140% 70% at 115% 125%, rgb(255 255 255 / 0.09) 0 40%, transparent 40.5%),
+    radial-gradient(120% 60% at 125% 145%, rgb(255 255 255 / 0.07) 0 45%, transparent 45.5%);
+}
+
+/* Recharts: sem contorno de foco nas áreas */
+.recharts-wrapper *:focus { outline: none; }

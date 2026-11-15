@@ -13,7 +13,8 @@
     "test": "vitest run",
     "lint": "tsc -p tsconfig.json --noEmit",
     "backup": "tsx src/cli/backup.ts",
-    "restaurar": "tsx src/cli/restaurar.ts"
+    "restaurar": "tsx src/cli/restaurar.ts",
+    "banco-local": "tsx src/cli/banco-local.ts"
   },
   "dependencies": {
     "@fastify/cookie": "^11.1.5",
@@ -21,6 +22,7 @@
     "@fastify/static": "^10.1.11",
     "@node-rs/argon2": "^2.2.2",
     "dotenv": "^18.0.10",
+    "embedded-postgres": "^16.15.0-beta.19",
     "fastify": "^5.12.8",
     "kysely": "^0.29.9",
     "pg": "^8.23.1",

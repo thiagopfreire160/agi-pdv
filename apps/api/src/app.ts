@@ -119,6 +119,15 @@ export async function construirApp(): Promise<FastifyInstance> {
 
   app.setNotFoundHandler((req, reply) => {
     if (servirTelas && req.method === 'GET' && !req.url.startsWith('/api')) return reply.sendFile('index.html');
+    if (!servirTelas && req.method === 'GET' && !req.url.startsWith('/api')) {
+      return reply.status(200).type('text/html; charset=utf-8').send(
+        '<!doctype html><meta charset="utf-8"><title>NEXO PDV</title>' +
+          '<body style="font-family:system-ui;max-width:560px;margin:15vh auto;padding:0 24px;line-height:1.6">' +
+          '<h1>NEXO PDV</h1><p>Este endereço é o da API. As telas ainda não foram geradas.</p>' +
+          '<p>Durante o desenvolvimento (<code>npm run dev</code>), abra <a href="http://localhost:5173">http://localhost:5173</a>.</p>' +
+          '<p>Para usar na loja, rode <code>npm run loja</code> (ou o <code>ferramentas\\iniciar-nexo.bat</code>) e este endereço passa a abrir o sistema.</p></body>',
+      );
+    }
     return reply.status(404).send({ erro: 'Rota não encontrada. Confira o endereço da API.' });
   });
 

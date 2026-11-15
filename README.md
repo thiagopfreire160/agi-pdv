@@ -25,16 +25,23 @@ Página do projeto: https://thiagopfreire160.github.io/nexo-pdv/
 
 ## Começar
 
-Precisa de Node.js 22 e Docker Desktop.
+Precisa só do Node.js 22. O banco de dados (PostgreSQL portátil) vem junto.
 
 ```bash
 git clone https://github.com/thiagopfreire160/nexo-pdv.git
 cd nexo-pdv
 npm install
-npm run db:up
+npm run db:local       # deixe esta janela aberta
+```
+
+Em outro terminal:
+
+```bash
 npm run db:migrar
 npm run dev
 ```
+
+No Windows, depois da primeira vez, basta dar dois cliques em `ferramentas\iniciar-nexo.bat`.
 
 Abra http://localhost:5173 e siga o primeiro acesso. Para ver uma loja de exemplo com 60 dias de vendas, rode `npm run db:semente -- --limpar` (apaga o banco) e entre com `admin@nexo.local` e a senha `Admin@123`.
 

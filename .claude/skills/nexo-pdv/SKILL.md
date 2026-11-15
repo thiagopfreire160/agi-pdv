@@ -69,7 +69,8 @@ Para textos maiores (README, landing, ajuda), aplique a skill **humanizer** (git
 
 ```bash
 npm install
-npm run db:up                    # Postgres no Docker
+npm run db:local                 # PostgreSQL portátil na pasta .banco (padrão, sem Docker)
+npm run db:up                    # alternativa: Postgres no Docker (mesma porta; use um ou outro)
 npm run db:migrar
 npm run db:semente -- --limpar   # loja de exemplo (APAGA o banco)
 npm run dev                      # API :3333 + web :5173
@@ -78,11 +79,11 @@ npm run build
 npm run admin:senha -- email     # senha temporária para o admin
 npm run loja                     # build + migração + liga em :3333 (API serve as telas)
 npm run iniciar                  # liga o modo loja sem rebuild
-npm run backup                   # backups/nexo-AAAA-MM-DD-HHMM.sql.gz (guarda 30)
+npm run backup                   # backups/nexo-AAAA-MM-DD-HHMM.nexo.gz via COPY (src/db/copia.ts), guarda 30
 npm run restaurar -- arquivo     # pede confirmação; troca todos os dados
 ```
 
-No Windows: `ferramentas/iniciar-nexo.bat` (liga tudo), `ferramentas/agendar-backup.bat` (backup diário às 22h no Agendador de Tarefas).
+No Windows: `ferramentas/iniciar-nexo.bat` (abre banco portátil + sistema em duas janelas), `ferramentas/agendar-backup.bat` (backup diário às 22h no Agendador de Tarefas).
 
 Segredos ficam em `.env` (raiz: NEXO_SENHA_BANCO) e `apps/api/.env` (DATABASE_URL, SEGREDO_SESSAO); nunca vão para o git.
 

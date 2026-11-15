@@ -20,7 +20,7 @@ Copie `apps/api/.env.example` para `apps/api/.env`. Sem esse arquivo, o sistema 
 | `BACKUP_MANTER` | `30` | quantos backups guardar; os mais antigos são apagados | quiser guardar mais ou menos dias |
 | `BACKUP_PASTA_EXTRA` | vazio | pasta para uma segunda cópia de cada backup | **recomendado**: aponte para uma pasta do OneDrive ou do Google Drive, para ter cópia fora do computador |
 
-Há também um `.env` na raiz do projeto, só com `NEXO_SENHA_BANCO`: a senha que o Docker usa para criar o banco. Ela precisa ser igual à senha dentro de `DATABASE_URL`.
+O banco portátil (`npm run db:local`) usa o usuário, a senha e a porta de `DATABASE_URL`, e guarda os dados na pasta `.banco`. Há também um `.env` na raiz, com `NEXO_SENHA_BANCO`, usado só se você preferir o Docker (`npm run db:up`); nesse caso ele precisa ter a mesma senha de `DATABASE_URL`.
 
 ## 2. Tela Configurações (regras da loja)
 

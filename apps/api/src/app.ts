@@ -113,7 +113,7 @@ export async function construirApp(): Promise<FastifyInstance> {
 
   // Modo loja: se o front já foi compilado (npm run build), a API também serve as telas.
   // Assim a loja usa um único endereço: http://IP-DO-SERVIDOR:3333
-  const pastaWeb = resolve(dirname(fileURLToPath(import.meta.url)), '../../web/dist');
+  const pastaWeb = process.env.NEXO_PASTA_WEB || resolve(dirname(fileURLToPath(import.meta.url)), '../../web/dist');
   const servirTelas = !emTeste && existsSync(resolve(pastaWeb, 'index.html'));
   if (servirTelas) await app.register(estaticos, { root: pastaWeb, wildcard: false });
 

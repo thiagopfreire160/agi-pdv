@@ -21,7 +21,8 @@
     "iniciar": "npm run start -w apps/api",
     "backup": "npm run backup -w apps/api",
     "restaurar": "npm run restaurar -w apps/api --",
-    "db:local": "npm run banco-local -w apps/api"
+    "db:local": "npm run banco-local -w apps/api",
+    "instalador": "node desktop/empacotar.mjs"
   },
   "devDependencies": {
     "concurrently": "^9.2.5"

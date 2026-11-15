@@ -6,6 +6,23 @@ Este guia tem duas partes. A primeira é para quem vai **instalar** o sistema. A
 
 ## Parte 1 — Instalar
 
+### Jeito mais fácil: o instalador (Windows)
+
+1. Rode **`NEXO-PDV-Setup-1.0.0.exe`**.
+2. Como o instalador ainda não tem assinatura digital, o Windows pode mostrar "O Windows protegeu o computador". Clique em **Mais informações** e depois em **Executar assim mesmo**.
+3. Siga o instalador. Ele cria o atalho **NEXO PDV** na área de trabalho e no menu Iniciar.
+4. Abra o NEXO PDV. Na primeira vez ele prepara o banco de dados sozinho e mostra o **primeiro acesso**, onde você cadastra a loja e o administrador.
+
+Não precisa de Node, terminal nem Docker. O que o programa já faz sozinho:
+
+- **Dados:** ficam em `%APPDATA%\NexoPDV`.
+- **Backup:** sai um por dia, guardado em **Documentos\NEXO PDV\backups**. Se a pasta Documentos estiver no OneDrive, o backup vai para a nuvem automaticamente.
+- **Menus:** em **Arquivo**, você faz backup na hora, restaura um backup e liga a opção de abrir junto com o Windows. Em **Loja → Endereço para os outros caixas**, aparece o endereço que os outros computadores abrem no navegador.
+
+Para gerar um instalador novo depois de mudar o código: `npm run instalador`. O arquivo sai na pasta `instalador`.
+
+### Jeito para quem vai mexer no código
+
 ### O que você precisa
 
 - **Node.js 22** ou mais novo (nodejs.org, versão LTS). Só isso.

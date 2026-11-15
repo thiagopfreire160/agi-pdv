@@ -35,6 +35,7 @@ site/      landing page estática
 | Componente reutilizável | `apps/web/src/componentes/ui/` |
 | Cor, fonte, raio, sombra | `brand/tokens.css` (copiar para `apps/web/src/estilos/tokens.css`) + `docs/design-system.md` |
 | Modo loja (API serve apps/web/dist) | `apps/api/src/app.ts` |
+| App de Windows (Electron, banco embutido na porta 54329, backup diário, menus) | `desktop/src/main.ts`; empacote com `npm run instalador` (rodar no Windows) |
 | Configuração da loja | tabela de configurações (migração) + tela Configurações + `docs/CONFIGURACOES.md` |
 
 Os módulos da API são: auditoria, auth, autorizacoes, caixa, categorias, clientes, configuracoes, dashboard, devolucoes, empresa, entradas, estoque, fornecedores, inventarios, produtos, relatorios, sistema, usuarios, vales e vendas.
@@ -81,6 +82,7 @@ npm run loja                     # build + migração + liga em :3333 (API serve
 npm run iniciar                  # liga o modo loja sem rebuild
 npm run backup                   # backups/nexo-AAAA-MM-DD-HHMM.nexo.gz via COPY (src/db/copia.ts), guarda 30
 npm run restaurar -- arquivo     # pede confirmação; troca todos os dados
+npm run instalador               # (Windows) gera instalador/NEXO-PDV-Setup-<versão>.exe
 ```
 
 No Windows: `ferramentas/iniciar-nexo.bat` (abre banco portátil + sistema em duas janelas), `ferramentas/agendar-backup.bat` (backup diário às 22h no Agendador de Tarefas).

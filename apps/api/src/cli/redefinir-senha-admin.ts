@@ -4,6 +4,7 @@
  */
 import { sql } from 'kysely';
 import { criarBanco } from '../db/conexao.js';
+import { config } from '../config.js';
 import { gerarHash, gerarSenhaTemporaria } from '../lib/senhas.js';
 
 const email = process.argv[2]?.trim().toLowerCase();
@@ -12,6 +13,13 @@ if (!email || !email.includes('@')) {
   process.exit(1);
 }
 
+const destino = new URL(config.databaseUrl);
+console.log(`Conectando ao banco ${destino.hostname}:${destino.port || 5432}${destino.pathname}...`);
+// Se a conexão nunca responder, o Node pode encerrar sem aviso. Este alarme evita isso.
+const alarme = setTimeout(() => {
+  console.error('O banco não respondeu em 15 segundos. Confira se o Docker Desktop está aberto e rode npm run db:up.');
+  process.exit(1);
+}, 15000);
 const db = criarBanco();
 try {
   const u = await db.selectFrom('usuarios').select(['id', 'nome', 'perfil', 'ativo']).where(sql`lower(email)`, '=', email).executeTakeFirst();
@@ -34,6 +42,14 @@ try {
     console.log(`Senha temporária de ${u.nome} (${u.perfil}): ${senha}`);
     console.log('No próximo login o sistema pedirá uma nova senha.');
   }
+} catch (e) {
+  const erro = e as { code?: string; message?: string };
+  if (erro.code === 'ECONNREFUSED') console.error('Não consegui conectar ao banco. Abra o Docker Desktop e rode npm run db:up.');
+  else if (erro.code === '28P01') console.error('A senha do banco não confere. A senha em apps/api/.env precisa ser igual à de NEXO_SENHA_BANCO no .env da raiz.');
+  else if (erro.code === '42P01') console.error('As tabelas ainda não existem. Rode npm run db:migrar.');
+  else console.error(`Erro: ${erro.message ?? e}`);
+  process.exitCode = 1;
 } finally {
+  clearTimeout(alarme);
   await db.destroy();
 }

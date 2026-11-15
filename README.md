@@ -25,7 +25,7 @@ Página do projeto: https://thiagopfreire160.github.io/nexo-pdv/
 
 ## Começar
 
-**Para usar na loja (Windows):** baixe e rode o `NEXO-PDV-Setup.exe`. Ele instala tudo, inclusive o banco de dados, e cria o atalho na área de trabalho. Detalhes em [docs/TUTORIAL.md](docs/TUTORIAL.md).
+**Para usar na loja (Windows):** baixe e rode o [NEXO-PDV-Setup.exe](https://github.com/thiagopfreire160/nexo-pdv/releases/latest/download/NEXO-PDV-Setup.exe) (todas as versões ficam em [Releases](https://github.com/thiagopfreire160/nexo-pdv/releases)). Ele instala tudo, inclusive o banco de dados, e cria o atalho na área de trabalho. Detalhes em [docs/TUTORIAL.md](docs/TUTORIAL.md).
 
 **Para desenvolver:**
 

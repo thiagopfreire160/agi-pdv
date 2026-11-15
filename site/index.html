@@ -274,6 +274,7 @@
     html { scroll-behavior: auto; }
     * { transition: none !important; }
   }
+  .nota-dev { margin-top: 20px; color: var(--texto-2); font-size: 15px; }
 </style>
 </head>
 <body>
@@ -311,11 +312,12 @@
     <h1 id="titulo">Ponto de venda gratuito para o <em>pequeno comércio</em></h1>
     <p class="lead">O NEXO PDV registra as vendas no caixa, controla o estoque e faz trocas com vale-troca pelo navegador, com o servidor rodando num computador da própria loja.</p>
     <div class="acoes">
-      <a class="botao botao-primario" href="https://github.com/thiagopfreire160/nexo-pdv">
+      <a class="botao botao-primario" href="https://github.com/thiagopfreire160/nexo-pdv/releases/latest/download/NEXO-PDV-Setup.exe">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
-        Baixar no GitHub
+        Baixar para Windows
       </a>
       <a class="botao botao-contorno" href="#telas">Ver como funciona</a>
+      <a class="botao botao-contorno" href="https://github.com/thiagopfreire160/nexo-pdv">Código no GitHub</a>
     </div>
     <p class="nota">Feito para mercearias, lojas de roupa, papelarias, lojas de material de construção e conveniências.</p>
 
@@ -492,37 +494,31 @@
   <section class="container bloco" id="comecar" aria-labelledby="t-comecar">
     <div class="cabeca">
       <h2 id="t-comecar">Como começar em 4 passos</h2>
-      <p>Os comandos funcionam no Windows, no macOS e no Linux. No Windows, use o PowerShell ou o terminal do VS Code.</p>
+      <p>O instalador é para Windows 10 ou 11 e já traz o banco de dados. Não precisa de terminal.</p>
     </div>
     <ol class="passos">
       <li class="card passo">
         <span class="passo-num" aria-hidden="true">1</span>
-        <h3>Instale o Node.js e o Docker</h3>
-        <p>O sistema pede o <a href="https://nodejs.org/pt-br">Node.js</a> 22 ou mais novo. O <a href="https://www.docker.com/products/docker-desktop/">Docker</a> sobe o banco PostgreSQL, então você não precisa instalar o banco à mão.</p>
+        <h3>Baixe o instalador</h3>
+        <p><a href="https://github.com/thiagopfreire160/nexo-pdv/releases/latest/download/NEXO-PDV-Setup.exe">NEXO-PDV-Setup.exe</a>, com cerca de 150 MB. Instale no computador que vai ficar ligado na loja, de preferência o do caixa principal.</p>
       </li>
       <li class="card passo">
         <span class="passo-num" aria-hidden="true">2</span>
-        <h3>Baixe o código</h3>
-        <div class="codigo"><pre><span class="p">$ </span>git clone https://github.com/thiagopfreire160/nexo-pdv.git
-<span class="p">$ </span>cd nexo-pdv</pre><button class="copiar" type="button" aria-label="Copiar comandos do passo 2"></button></div>
-        <p>Sem o git instalado, baixe o .zip pelo botão Code na página do repositório e descompacte.</p>
+        <h3>Instale</h3>
+        <p>Se o Windows mostrar "O Windows protegeu o computador", clique em <strong>Mais informações</strong> e depois em <strong>Executar assim mesmo</strong>. O aviso aparece porque o instalador ainda não tem assinatura digital.</p>
       </li>
       <li class="card passo">
         <span class="passo-num" aria-hidden="true">3</span>
-        <h3>Prepare o banco</h3>
-        <div class="codigo"><pre><span class="p">$ </span>npm install
-<span class="p">$ </span>npm run db:up
-<span class="p">$ </span>npm run db:migrar
-<span class="p">$ </span>npm run db:semente</pre><button class="copiar" type="button" aria-label="Copiar comandos do passo 3"></button></div>
-        <p>O último comando cria a loja de exemplo, com uns 45 produtos e 60 dias de vendas. Se quiser começar com o banco vazio, pule esse comando.</p>
+        <h3>Cadastre a loja</h3>
+        <p>Na primeira abertura, informe o nome e o CNPJ da loja e crie o seu usuário de administrador. Depois cadastre os produtos ou dê entrada no estoque.</p>
       </li>
       <li class="card passo">
         <span class="passo-num" aria-hidden="true">4</span>
-        <h3>Abra o sistema</h3>
-        <div class="codigo"><pre><span class="p">$ </span>npm run dev</pre><button class="copiar" type="button" aria-label="Copiar comando do passo 4"></button></div>
-        <p>Abra <code class="inline">http://localhost:5173</code> no navegador. Na loja de exemplo, entre com <code class="inline">admin@nexo.local</code> e a senha <code class="inline">Admin@123</code>. Com o banco vazio, um assistente pede o nome e o CNPJ da loja e cria o primeiro administrador.</p>
+        <h3>Ligue os outros caixas</h3>
+        <p>No menu <strong>Loja → Endereço para os outros caixas</strong> aparece o endereço que os outros computadores abrem no navegador. O backup sai sozinho todo dia em Documentos\NEXO PDV\backups.</p>
       </li>
     </ol>
+    <p class="nota-dev">Vai mexer no código? As instruções para desenvolvedores estão no <a href="https://github.com/thiagopfreire160/nexo-pdv#readme">README do repositório</a>.</p>
   </section>
 
   <section class="container bloco" id="depois" aria-labelledby="t-depois">

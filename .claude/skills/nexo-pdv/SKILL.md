@@ -83,6 +83,8 @@ npm run iniciar                  # liga o modo loja sem rebuild
 npm run backup                   # backups/nexo-AAAA-MM-DD-HHMM.nexo.gz via COPY (src/db/copia.ts), guarda 30
 npm run restaurar -- arquivo     # pede confirmação; troca todos os dados
 npm run instalador               # (Windows) gera instalador/NEXO-PDV-Setup-<versão>.exe
+# Lançar versão: suba "version" no package.json da raiz, commit, git tag vX.Y.Z, git push origin vX.Y.Z
+# (o workflow .github/workflows/instalador.yml gera o .exe num Windows do GitHub e publica em Releases)
 ```
 
 No Windows: `ferramentas/iniciar-nexo.bat` (abre banco portátil + sistema em duas janelas), `ferramentas/agendar-backup.bat` (backup diário às 22h no Agendador de Tarefas).

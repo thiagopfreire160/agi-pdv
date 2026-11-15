@@ -17,7 +17,6 @@ Já resolvido: segredo de sessão e senha do banco aleatórios no `.env` da inst
 
 - Assinatura digital do instalador (certificado de assinatura de código), para o Windows parar de mostrar o aviso "O Windows protegeu o computador".
 - Atualização automática: o app procurar versão nova e se atualizar sozinho (electron-updater com GitHub Releases).
-- Publicar cada instalador como Release no GitHub, para baixar pelo site.
 - Opção no menu para carregar a loja de exemplo, para treinar sem mexer nos dados reais.
 
 ## Pequenos ajustes já mapeados na v1

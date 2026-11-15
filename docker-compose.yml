@@ -4,7 +4,7 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: nexo
+      POSTGRES_PASSWORD: ${NEXO_SENHA_BANCO:-nexo}
       POSTGRES_DB: nexo
     ports:
       - "5432:5432"

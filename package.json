@@ -18,7 +18,9 @@
     "build": "npm run build --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "loja": "npm run build && npm run db:migrar && npm run start -w apps/api",
-    "iniciar": "npm run start -w apps/api"
+    "iniciar": "npm run start -w apps/api",
+    "backup": "npm run backup -w apps/api",
+    "restaurar": "npm run restaurar -w apps/api --"
   },
   "devDependencies": {
     "concurrently": "^9.2.5"

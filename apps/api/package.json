@@ -11,7 +11,9 @@
     "semente": "tsx src/cli/semente.ts",
     "redefinir-senha": "tsx src/cli/redefinir-senha-admin.ts",
     "test": "vitest run",
-    "lint": "tsc -p tsconfig.json --noEmit"
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "backup": "tsx src/cli/backup.ts",
+    "restaurar": "tsx src/cli/restaurar.ts"
   },
   "dependencies": {
     "@fastify/cookie": "^11.1.5",

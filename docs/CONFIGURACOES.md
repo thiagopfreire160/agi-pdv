@@ -16,6 +16,11 @@ Copie `apps/api/.env.example` para `apps/api/.env`. Sem esse arquivo, o sistema 
 | `ORIGEM_WEB` | `http://localhost:5173` | endereços extras autorizados a abrir o sistema | o front estiver em outro endereço (no modo loja, porta 3333, não precisa mudar); separe por vírgula |
 | `COOKIE_SEGURO` | `false` | exige HTTPS no cookie de login | o sistema estiver publicado com HTTPS |
 | `NIVEL_LOG` | `info` | quantidade de detalhes no log | investigar um problema (`debug`) |
+| `BACKUP_PASTA` | `backups` | onde o `npm run backup` salva os arquivos | quiser outra pasta |
+| `BACKUP_MANTER` | `30` | quantos backups guardar; os mais antigos são apagados | quiser guardar mais ou menos dias |
+| `BACKUP_PASTA_EXTRA` | vazio | pasta para uma segunda cópia de cada backup | **recomendado**: aponte para uma pasta do OneDrive ou do Google Drive, para ter cópia fora do computador |
+
+Há também um `.env` na raiz do projeto, só com `NEXO_SENHA_BANCO`: a senha que o Docker usa para criar o banco. Ela precisa ser igual à senha dentro de `DATABASE_URL`.
 
 ## 2. Tela Configurações (regras da loja)
 

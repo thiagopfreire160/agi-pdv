@@ -78,7 +78,13 @@ npm run build
 npm run admin:senha -- email     # senha temporária para o admin
 npm run loja                     # build + migração + liga em :3333 (API serve as telas)
 npm run iniciar                  # liga o modo loja sem rebuild
+npm run backup                   # backups/nexo-AAAA-MM-DD-HHMM.sql.gz (guarda 30)
+npm run restaurar -- arquivo     # pede confirmação; troca todos os dados
 ```
+
+No Windows: `ferramentas/iniciar-nexo.bat` (liga tudo), `ferramentas/agendar-backup.bat` (backup diário às 22h no Agendador de Tarefas).
+
+Segredos ficam em `.env` (raiz: NEXO_SENHA_BANCO) e `apps/api/.env` (DATABASE_URL, SEGREDO_SESSAO); nunca vão para o git.
 
 Logins da semente: admin@nexo.local / Admin@123, gerente@nexo.local / Gerente@123, caixa@nexo.local / Caixa@123.
 

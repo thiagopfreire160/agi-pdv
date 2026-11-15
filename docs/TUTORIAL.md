@@ -49,6 +49,19 @@ npm run iniciar     # só liga, nos dias seguintes
 
 Abra **http://localhost:3333** no computador servidor. Nos outros computadores da loja, abra `http://IP-DO-SERVIDOR:3333` (o IP aparece com o comando `ipconfig`, na linha "Endereço IPv4"). Não precisa instalar nada neles: basta o navegador.
 
+No Windows, dá para ligar tudo com dois cliques no arquivo **`ferramentas\iniciar-nexo.bat`**. Crie um atalho dele na área de trabalho ou na pasta Inicializar do Windows para o NEXO ligar junto com o computador.
+
+### Backup
+
+O backup copia o banco inteiro para um arquivo na pasta `backups`.
+
+- **Automático:** clique duas vezes em **`ferramentas\agendar-backup.bat`** uma única vez. A partir daí, o Windows faz o backup todo dia às 22h e guarda os últimos 30. O computador precisa estar ligado e o Docker Desktop aberto nesse horário.
+- **Na hora:** `npm run backup`.
+- **Cópia fora do computador:** em `apps/api/.env`, preencha `BACKUP_PASTA_EXTRA` com uma pasta do OneDrive ou do Google Drive. Se o computador queimar, o backup continua na nuvem.
+- **Restaurar:** `npm run restaurar -- backups\nome-do-arquivo.sql.gz`. O sistema pede para digitar RESTAURAR antes, porque isso troca todos os dados atuais pelos do arquivo.
+
+Faça um teste de restauração uma vez por mês num computador separado. Backup que nunca foi testado pode não servir na hora que precisar.
+
 ### Esqueci a senha do administrador
 
 ```bash

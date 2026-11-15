@@ -6,11 +6,12 @@ Lista em ordem de prioridade sugerida. Cada item novo começa com uma entrada na
 
 | Item | Por quê | Esforço |
 |---|---|---|
-| Trocar `SEGREDO_SESSAO` e a senha do banco | os valores de exemplo são públicos | minutos |
-| Rotina de backup do banco (`pg_dump` diário em outra máquina ou na nuvem) | hoje não há backup automático | baixo |
-| Testar a impressão em impressora térmica real (58 e 80 mm) | o layout foi conferido só na prévia do navegador | baixo |
+| Testar a impressão em impressora térmica real (58 e 80 mm) | o layout foi conferido só na prévia do navegador; roteiro em [TESTE-IMPRESSORA.md](TESTE-IMPRESSORA.md) | baixo |
+| Apontar `BACKUP_PASTA_EXTRA` para uma pasta na nuvem e rodar `ferramentas\agendar-backup.bat` | o backup diário já existe, mas só fica fora do computador se essa pasta for configurada | minutos |
 | Separar o banco de testes do banco da loja | os testes de ponta a ponta (Playwright) gravam vendas no banco `nexo`; nunca rode-os apontando para a loja | baixo |
 | HTTPS, se o sistema for acessado fora da rede da loja (`COOKIE_SEGURO=true`) | proteger senhas em trânsito | médio |
+
+Já resolvido: segredo de sessão e senha do banco aleatórios no `.env` da instalação, e backup com rotação de 30 dias, restauração e agendador do Windows.
 
 ## Pequenos ajustes já mapeados na v1
 

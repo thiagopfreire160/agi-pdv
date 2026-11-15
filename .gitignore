@@ -9,3 +9,5 @@ test-results
 # Playwright
 apps/web/test-results
 .vite
+
+backups

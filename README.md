@@ -6,6 +6,8 @@
 
 Ponto de venda gratuito para mercadinho, loja de bairro e pequeno comércio. Roda no computador da loja, abre no navegador e funciona nos outros computadores da mesma rede.
 
+Página do projeto: https://thiagopfreire160.github.io/nexo-pdv/
+
 ![Dashboard do NEXO PDV](docs/capturas/dashboard-claro.png)
 
 ## O que ele faz
@@ -26,6 +28,8 @@ Ponto de venda gratuito para mercadinho, loja de bairro e pequeno comércio. Rod
 Precisa de Node.js 22 e Docker Desktop.
 
 ```bash
+git clone https://github.com/thiagopfreire160/nexo-pdv.git
+cd nexo-pdv
 npm install
 npm run db:up
 npm run db:migrar

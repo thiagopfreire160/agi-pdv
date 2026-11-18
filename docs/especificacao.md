@@ -191,7 +191,7 @@ Convenções valem para todas as tabelas:
 | Deve trocar senha | Booleano | Sim | Verdadeiro ao criar e ao redefinir senha por outro usuário. |
 | Ativo | Booleano | Sim | Inativo não faz login nem autoriza ações. |
 | Último acesso | Timestamp | — | Preenchido pelo sistema. |
-| Tema preferido | Enum | Sim | `claro`, `escuro`, `sistema` (padrão `sistema`). |
+| Tema preferido | Enum | Sim | `claro`, `escuro`, `sistema` (padrão `escuro`). |
 
 Restrições:
 - Sempre deve existir **pelo menos um administrador ativo**. O sistema impede inativar, rebaixar ou excluir o último.
@@ -727,7 +727,7 @@ Ver seção 7.
 #### Telas (abas)
 - **Caixa e vendas:** limites de desconto por perfil, exigir autorização para remover item, permitir vender sem estoque, máximo de parcelas, alerta de sangria, prazo de trocas, validade do vale-troca.
 - **Recibo:** papel (58 mm, 80 mm, A4), mostrar logo, impressão automática, número de vias, botão "imprimir recibo de teste".
-- **Aparência:** tema claro, escuro ou seguir o sistema operacional (preferência por usuário, salva no perfil e aplicada imediatamente).
+- **Aparência:** tema escuro (padrão), claro ou seguir o sistema operacional (preferência por usuário, salva no perfil e aplicada imediatamente).
 - **Segurança e sessões:** duração da sessão, encerramento por inatividade, tentativas e tempo de bloqueio; lista de sessões ativas de todos os usuários (usuário, IP, navegador, início, último uso) com ação de encerrar uma sessão ou todas de um usuário.
 - **Usuários:** atalho para o módulo 4.2.
 - **Auditoria:** consulta da trilha de auditoria com filtros por período, usuário, entidade e ação (somente administrador).
@@ -1178,6 +1178,7 @@ Cada item deve ser verificável por teste automatizado ou manual.
 ### 8.12 Configurações e transversais
 - [ ] Alterar limite de desconto do Caixa vale na próxima finalização.
 - [ ] Limite do gerente menor que o do Caixa é recusado.
+- [ ] Usuário novo começa no tema escuro.
 - [ ] Tema escolhido persiste após sair e entrar em outro computador.
 - [ ] Administrador vê e encerra sessões ativas; o usuário afetado é desconectado na próxima ação.
 - [ ] Toda edição de produto, cliente, fornecedor, usuário e configuração gera registro de auditoria com antes/depois.

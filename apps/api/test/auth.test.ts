@@ -159,11 +159,16 @@ describe('login e sessão', () => {
     expect((await gerente.get('/api/sessoes')).status).toBe(401);
   });
 
+  it('usuário começa no tema escuro', async () => {
+    const a = new Cliente('10.2.2.1');
+    expect((await a.entrar('admin@teste.com')).corpo.usuario.tema).toBe('escuro');
+  });
+
   it('tema escolhido persiste no perfil (vale em qualquer computador)', async () => {
     const a = new Cliente('10.2.2.2');
     await a.entrar('admin@teste.com');
-    expect((await a.put('/api/auth/perfil', { tema: 'escuro' })).corpo.tema).toBe('escuro');
+    expect((await a.put('/api/auth/perfil', { tema: 'claro' })).corpo.tema).toBe('claro');
     const b = new Cliente('10.2.2.3');
-    expect((await b.entrar('admin@teste.com')).corpo.usuario.tema).toBe('escuro');
+    expect((await b.entrar('admin@teste.com')).corpo.usuario.tema).toBe('claro');
   });
 });

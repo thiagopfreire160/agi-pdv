@@ -6,7 +6,7 @@
 
 Ponto de venda gratuito para mercadinho, loja de bairro e pequeno comércio. Roda no computador da loja, abre no navegador e funciona nos outros computadores da mesma rede.
 
-Página do projeto: https://thiagopfreire160.github.io/nexo-pdv/
+Página do projeto: https://thiagopfreire160.github.io/agi-pdv/
 
 ![Dashboard do agi pdv](docs/capturas/dashboard-claro.png)
 
@@ -25,7 +25,7 @@ Página do projeto: https://thiagopfreire160.github.io/nexo-pdv/
 
 ## Começar
 
-**Para usar na loja (Windows):** baixe e rode o [agi-pdv-Setup.exe](https://github.com/thiagopfreire160/nexo-pdv/releases/latest/download/agi-pdv-Setup.exe) (todas as versões ficam em [Releases](https://github.com/thiagopfreire160/nexo-pdv/releases)). Ele instala tudo, inclusive o banco de dados, e cria o atalho na área de trabalho. Detalhes em [docs/TUTORIAL.md](docs/TUTORIAL.md).
+**Para usar na loja (Windows):** baixe e rode o [agi-pdv-Setup.exe](https://github.com/thiagopfreire160/agi-pdv/releases/latest/download/agi-pdv-Setup.exe) (todas as versões ficam em [Releases](https://github.com/thiagopfreire160/agi-pdv/releases)). Ele instala tudo, inclusive o banco de dados, e cria o atalho na área de trabalho. Detalhes em [docs/TUTORIAL.md](docs/TUTORIAL.md).
 
 **Para desenvolver:**
 
@@ -33,8 +33,8 @@ Página do projeto: https://thiagopfreire160.github.io/nexo-pdv/
 Precisa só do Node.js 22. O banco de dados (PostgreSQL portátil) vem junto.
 
 ```bash
-git clone https://github.com/thiagopfreire160/nexo-pdv.git
-cd nexo-pdv
+git clone https://github.com/thiagopfreire160/agi-pdv.git
+cd agi-pdv
 npm install
 npm run db:local       # deixe esta janela aberta
 ```

@@ -218,7 +218,7 @@ function montarMenu() {
       {
         label: 'Ajuda',
         submenu: [
-          { label: 'Tutorial', click: () => shell.openExternal('https://github.com/thiagopfreire160/nexo-pdv/blob/main/docs/TUTORIAL.md') },
+          { label: 'Tutorial', click: () => shell.openExternal('https://github.com/thiagopfreire160/agi-pdv/blob/main/docs/TUTORIAL.md') },
           { label: 'Abrir pasta de dados', click: () => shell.openPath(pastaDados) },
           { type: 'separator' },
           { label: `Sobre o agi pdv ${app.getVersion()}`, click: () => dialog.showMessageBox(janela!, { message: `agi pdv ${app.getVersion()}`, detail: 'Ponto de venda para pequeno comércio. Licença MIT.' }) },

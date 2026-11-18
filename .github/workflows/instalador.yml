@@ -31,7 +31,7 @@ jobs:
 
             Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações** e depois em **Executar assim mesmo**. O aviso aparece porque o instalador ainda não tem assinatura digital.
 
-            Tutorial: https://github.com/thiagopfreire160/nexo-pdv/blob/main/docs/TUTORIAL.md
+            Tutorial: https://github.com/thiagopfreire160/agi-pdv/blob/main/docs/TUTORIAL.md
           files: |
             instalador/agi-pdv-Setup.exe
             instalador/agi-pdv-Setup-*.exe

@@ -642,7 +642,7 @@ export function FrenteCaixa() {
               <button
                 type="button"
                 onClick={() => { setTextoBusca(textoLeitura); setTextoLeitura(''); setJanela('busca') }}
-                className="absolute top-1/2 right-3 flex -translate-y-1/2 items-center gap-2 rounded-xl bg-floresta-50 px-3 py-2 text-sm font-semibold text-primaria hover:bg-floresta-100 dark:bg-superficie-2 dark:hover:bg-floresta-900"
+                className="absolute top-1/2 right-3 flex -translate-y-1/2 items-center gap-2 rounded-xl bg-selecao px-3 py-2 text-sm font-semibold text-primaria hover:brightness-95"
               >
                 <Search size={16} /> Buscar <kbd className="text-[11px] opacity-70">F2</kbd>
               </button>
@@ -700,7 +700,7 @@ export function FrenteCaixa() {
                         <tr
                           key={i.chave}
                           onClick={() => setSelecionado(i.chave)}
-                          className={`cursor-pointer border-b border-borda/60 last:border-0 ${sel ? 'bg-floresta-50 dark:bg-superficie-2' : 'hover:bg-superficie-2/60'}`}
+                          className={`cursor-pointer border-b border-borda/60 last:border-0 ${sel ? 'bg-selecao' : 'hover:bg-superficie-2/60'}`}
                         >
                           <td className="tabular relative px-3 py-3 text-texto-3">
                             {sel && <span className="absolute top-2 bottom-2 left-0 w-[3px] rounded-r-full bg-primaria" />}
@@ -749,22 +749,22 @@ export function FrenteCaixa() {
         {/* Direita: total e ações */}
         <aside className="flex w-[360px] shrink-0 flex-col gap-3 xl:w-[400px]">
           <div className="card-destaque ondas relative overflow-hidden rounded-[var(--radius-card)] p-6 shadow-[var(--shadow-card)]">
-            <p className="text-sm font-semibold text-white/80">Total a pagar</p>
-            <p className="tabular mt-2 text-[48px] leading-none font-extrabold tracking-tight text-white" data-teste="total">
+            <p className="text-sm font-semibold text-creme/80">Total a pagar</p>
+            <p className="tabular mt-2 text-[48px] leading-none font-extrabold tracking-tight text-creme" data-teste="total">
               {dinheiro(totais?.total ?? 0)}
             </p>
-            <div className="mt-5 grid grid-cols-3 gap-2 border-t border-white/15 pt-4 text-xs">
+            <div className="mt-5 grid grid-cols-3 gap-2 border-t border-creme/15 pt-4 text-xs">
               <div>
-                <p className="text-white/60">Subtotal</p>
-                <p className="tabular mt-0.5 text-sm font-semibold text-white">{dinheiro(totais?.somaBruto ?? 0)}</p>
+                <p className="text-creme/60">Subtotal</p>
+                <p className="tabular mt-0.5 text-sm font-semibold text-creme">{dinheiro(totais?.somaBruto ?? 0)}</p>
               </div>
               <div>
-                <p className="text-white/60">Descontos</p>
-                <p className="tabular mt-0.5 text-sm font-semibold text-white">{dinheiro(totais?.descontoTotal ?? 0)}</p>
+                <p className="text-creme/60">Descontos</p>
+                <p className="tabular mt-0.5 text-sm font-semibold text-creme">{dinheiro(totais?.descontoTotal ?? 0)}</p>
               </div>
               <div>
-                <p className="text-white/60">Itens</p>
-                <p className="tabular mt-0.5 text-sm font-semibold text-white">{quantidade(totais?.quantidadeItens ?? 0)}</p>
+                <p className="text-creme/60">Itens</p>
+                <p className="tabular mt-0.5 text-sm font-semibold text-creme">{quantidade(totais?.quantidadeItens ?? 0)}</p>
               </div>
             </div>
           </div>
@@ -775,7 +775,7 @@ export function FrenteCaixa() {
             disabled={sessao.vencido}
             className="flex items-center gap-3 rounded-[var(--radius-card)] bg-superficie p-4 text-left shadow-[var(--shadow-card)] hover:bg-superficie-2"
           >
-            <span className="flex size-10 items-center justify-center rounded-full bg-floresta-50 text-primaria dark:bg-superficie-2">
+            <span className="flex size-10 items-center justify-center rounded-full bg-selecao text-primaria">
               <UserRound size={18} />
             </span>
             <span className="min-w-0 flex-1">
@@ -819,7 +819,7 @@ export function FrenteCaixa() {
 
           <div className="mt-auto flex flex-col gap-2.5 rounded-[var(--radius-card)] bg-superficie p-4 shadow-[var(--shadow-card)]">
             <Botao tamanho="lg" className="h-16 text-lg" disabled={itens.length === 0 || sessao.vencido} onClick={() => setJanela('pagamento')}>
-              Receber pagamento <kbd className="ml-1 rounded-md bg-white/20 px-1.5 text-xs">F4</kbd>
+              Receber pagamento <kbd className="ml-1 rounded-md bg-sobre-primaria/15 px-1.5 text-xs">F4</kbd>
             </Botao>
             <div className="grid grid-cols-2 gap-2.5">
               <Botao variante="suave" tamanho="lg" icone={<Percent size={17} />} disabled={itens.length === 0} onClick={() => abrirDesconto(false)}>

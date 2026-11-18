@@ -15,8 +15,8 @@ export function Logo({ tamanho = 36, mostrarNome = true, sempreEscuro = false }:
       />
       {mostrarNome && (
         <span className="text-[19px] leading-none tracking-tight" aria-label="NEXO PDV">
-          <span className={`font-extrabold ${sempreEscuro ? 'text-white' : 'text-texto'}`}>NEXO</span>{' '}
-          <span className={`font-medium ${sempreEscuro ? 'text-white/60' : 'text-texto-3'}`}>PDV</span>
+          <span className={`font-extrabold ${sempreEscuro ? 'text-creme' : 'text-texto'}`}>NEXO</span>{' '}
+          <span className={`font-medium ${sempreEscuro ? 'text-creme/60' : 'text-texto-3'}`}>PDV</span>
         </span>
       )}
     </span>

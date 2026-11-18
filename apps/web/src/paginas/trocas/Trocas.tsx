@@ -173,7 +173,7 @@ function NovaDevolucao() {
                 const e = escolhas[i.id]
                 const disp = i.quantidade_disponivel_devolucao
                 return (
-                  <li key={i.id} className={`rounded-2xl border p-4 ${e?.marcado ? 'border-primaria bg-floresta-50/60 dark:bg-superficie-2' : 'border-borda'}`}>
+                  <li key={i.id} className={`rounded-2xl border p-4 ${e?.marcado ? 'border-primaria bg-selecao' : 'border-borda'}`}>
                     <div className="flex flex-wrap items-center gap-4">
                       <CaixaMarcar
                         desabilitado={disp <= 0}
@@ -210,9 +210,9 @@ function NovaDevolucao() {
       <Card className="flex flex-col">
         <CabecalhoCard titulo="3. Como devolver" />
         <div className="card-destaque ondas mb-4 rounded-2xl p-5">
-          <p className="text-sm text-white/80">Valor da devolução</p>
-          <p className="tabular mt-1 text-4xl font-extrabold text-white">{dinheiro(sim?.valor ?? 0)}</p>
-          {sim && <p className="mt-1 text-xs text-floresta-100">Proporcional ao que o cliente pagou, já com descontos.</p>}
+          <p className="text-sm text-creme/80">Valor da devolução</p>
+          <p className="tabular mt-1 text-4xl font-extrabold text-creme">{dinheiro(sim?.valor ?? 0)}</p>
+          {sim && <p className="mt-1 text-xs text-creme-2">Proporcional ao que o cliente pagou, já com descontos.</p>}
         </div>
         {sim?.fora_do_prazo && (
           <p className="mb-4 flex items-start gap-2 rounded-xl bg-aviso-bg px-3.5 py-2.5 text-sm text-aviso-fg">

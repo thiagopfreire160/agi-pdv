@@ -5,7 +5,7 @@ export function CabecalhoPagina({ titulo, descricao, acoes }: { titulo: string; 
   return (
     <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
       <div className="min-w-0">
-        <h1 className="text-2xl font-bold tracking-tight text-texto lg:text-[28px]">{titulo}</h1>
+        <h1 className="font-titulo text-2xl font-extrabold tracking-[-0.035em] text-texto lg:text-[28px]">{titulo}</h1>
         {descricao && <p className="mt-1 text-sm text-texto-3">{descricao}</p>}
       </div>
       {acoes && <div className="flex flex-wrap items-center gap-2.5">{acoes}</div>}
@@ -26,7 +26,7 @@ export function Abas<T extends string>({
           aria-selected={ativa === a.valor}
           onClick={() => aoMudar(a.valor)}
           className={`flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold whitespace-nowrap transition-colors ${
-            ativa === a.valor ? 'bg-floresta-50 text-primaria dark:bg-superficie-2' : 'text-texto-2 hover:text-texto'
+            ativa === a.valor ? 'bg-selecao text-primaria' : 'text-texto-2 hover:text-texto'
           }`}
         >
           {a.rotulo}

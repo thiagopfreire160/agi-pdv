@@ -54,7 +54,7 @@ export function AberturaCaixa({ aoAbrir, operador }: { aoAbrir: (s: SessaoCaixa)
   return (
     <div className="flex flex-1 items-center justify-center p-6">
       <form onSubmit={abrir} className="w-full max-w-md rounded-[28px] bg-superficie p-8 shadow-[var(--shadow-card)]">
-        <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-floresta-50 text-primaria dark:bg-superficie-2">
+        <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-selecao text-primaria">
           <LockOpen size={26} strokeWidth={1.75} />
         </div>
         <h1 className="text-[26px] font-bold tracking-tight text-texto">Abrir o caixa</h1>

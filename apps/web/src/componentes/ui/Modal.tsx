@@ -60,7 +60,7 @@ export function Modal({ aberto, aoFechar, titulo, descricao, children, rodape, l
   if (!aberto) return null
   return createPortal(
     <div className="fixed inset-0 z-50 flex items-end justify-center p-0 sm:items-center sm:p-4" role="presentation">
-      <div className="absolute inset-0 bg-floresta-950/45 backdrop-blur-[2px]" onClick={aoFechar} />
+      <div className="absolute inset-0 bg-veu backdrop-blur-[2px]" onClick={aoFechar} />
       <div
         ref={ref}
         role="dialog"
@@ -103,7 +103,7 @@ export function Gaveta({ aberto, aoFechar, titulo, descricao, children, rodape, 
   if (!aberto) return null
   return createPortal(
     <div className="fixed inset-0 z-40 flex justify-end" role="presentation">
-      <div className="absolute inset-0 bg-floresta-950/35 backdrop-blur-[1px]" onClick={aoFechar} />
+      <div className="absolute inset-0 bg-veu backdrop-blur-[1px]" onClick={aoFechar} />
       <div
         ref={ref}
         role="dialog"

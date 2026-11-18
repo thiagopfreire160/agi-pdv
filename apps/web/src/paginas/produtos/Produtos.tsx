@@ -53,9 +53,9 @@ function ConsultaPreco({ aberto, aoFechar }: { aberto: boolean; aoFechar: () => 
       </form>
       {p && (
         <div className="card-destaque ondas mt-4 rounded-2xl p-5">
-          <p className="text-sm font-semibold text-white/85">{p.nome}</p>
-          <p className="tabular mt-1 text-4xl font-extrabold text-white">{dinheiro(p.preco_venda)}</p>
-          <p className="tabular mt-2 text-xs text-floresta-100">
+          <p className="text-sm font-semibold text-creme/85">{p.nome}</p>
+          <p className="tabular mt-1 text-4xl font-extrabold text-creme">{dinheiro(p.preco_venda)}</p>
+          <p className="tabular mt-2 text-xs text-creme-2">
             {p.controla_estoque ? `Estoque: ${quantidade(p.estoque_atual, p.unidade)} ${p.unidade}` : 'Não controla estoque'} · código {p.codigo}
           </p>
         </div>

@@ -157,7 +157,7 @@ function Aparencia() {
             role="radio"
             aria-checked={tema === t}
             onClick={() => escolher(t)}
-            className={`rounded-2xl border-2 p-4 text-left transition-colors ${tema === t ? 'border-primaria bg-floresta-50 dark:bg-superficie-2' : 'border-borda hover:border-floresta-300'}`}
+            className={`rounded-2xl border-2 p-4 text-left transition-colors ${tema === t ? 'border-primaria bg-selecao' : 'border-borda hover:border-destaque/50'}`}
           >
             <I size={22} className={tema === t ? 'text-primaria' : 'text-texto-3'} />
             <p className="mt-3 text-sm font-semibold text-texto">{rotulo}</p>

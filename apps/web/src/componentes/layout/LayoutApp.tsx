@@ -21,7 +21,7 @@ function ItemNav({ item, aoNavegar }: { item: ItemMenu; aoNavegar?: () => void }
       onClick={aoNavegar}
       className={({ isActive }) =>
         `group relative flex h-10 items-center gap-3 rounded-xl px-3.5 text-[14px] font-medium transition-colors ${
-          isActive ? 'bg-floresta-50 font-semibold text-primaria dark:bg-superficie-2' : 'text-texto-2 hover:bg-superficie-2 hover:text-texto'
+          isActive ? 'bg-selecao font-semibold text-primaria' : 'text-texto-2 hover:bg-superficie-2 hover:text-texto'
         }`
       }
     >
@@ -92,15 +92,15 @@ function Sidebar({ aoNavegar }: { aoNavegar?: () => void }) {
       </nav>
       <div className="mt-auto pt-5">
         <div className="card-escuro ondas rounded-[18px] p-4">
-          <p className="flex items-center gap-2 text-[15px] font-bold text-white">
-            <CircleHelp size={18} strokeWidth={1.75} className="text-broto-300" />
+          <p className="flex items-center gap-2 text-[15px] font-bold text-creme">
+            <CircleHelp size={18} strokeWidth={1.75} className="text-ouro-claro" />
             Precisa de ajuda?
           </p>
-          <p className="mt-1 text-xs text-white/65 [@media(max-height:940px)]:hidden">Atalhos do caixa e passos básicos.</p>
+          <p className="mt-1 text-xs text-creme/65 [@media(max-height:940px)]:hidden">Atalhos do caixa e passos básicos.</p>
           <NavLink
             to="/ajuda"
             onClick={aoNavegar}
-            className="mt-3 flex h-9 items-center justify-center rounded-full bg-broto-500 text-sm font-semibold text-floresta-950 transition-colors hover:bg-broto-400"
+            className="mt-3 flex h-9 items-center justify-center rounded-full bg-ouro text-sm font-semibold text-preto transition-colors hover:bg-ouro-claro"
           >
             Abrir ajuda
           </NavLink>
@@ -118,17 +118,17 @@ function BotaoTema() {
       onClick={alternar}
       aria-label={escuro ? 'Usar tema claro' : 'Usar tema escuro'}
       title={escuro ? 'Usar tema claro' : 'Usar tema escuro'}
-      className="relative flex h-10 w-[76px] items-center rounded-full bg-floresta-100 p-1 transition-colors dark:bg-floresta-900"
+      className="relative flex h-10 w-[76px] items-center rounded-full bg-superficie-2 p-1 transition-colors"
     >
-      <span className="absolute left-2.5 text-floresta-600 dark:text-floresta-300">
+      <span className="absolute left-2.5 text-texto-3">
         <Sun size={15} />
       </span>
-      <span className="absolute right-2.5 text-floresta-500">
+      <span className="absolute right-2.5 text-texto-3">
         <Moon size={15} />
       </span>
       <span
         className={`relative z-[1] flex size-8 items-center justify-center rounded-full shadow transition-transform ${
-          escuro ? 'translate-x-9 bg-broto-400 text-floresta-950' : 'translate-x-0 bg-primaria text-white'
+          escuro ? 'translate-x-9 bg-primaria text-sobre-primaria' : 'translate-x-0 bg-primaria text-sobre-primaria'
         }`}
       >
         {escuro ? <Moon size={15} /> : <Sun size={15} />}
@@ -221,7 +221,7 @@ function BarraSuperior({ abrirMenu }: { abrirMenu: () => void }) {
         <BotaoTema />
         <Notificacoes />
         <div className="ml-1 flex items-center gap-3 border-l border-borda pl-3 sm:pl-4">
-          <span className="flex size-10 items-center justify-center rounded-full bg-floresta-100 text-sm font-bold text-floresta-700 dark:bg-floresta-800 dark:text-floresta-100">
+          <span className="flex size-10 items-center justify-center rounded-full bg-selecao text-sm font-bold text-destaque">
             {iniciais(usuario.nome)}
           </span>
           <span className="hidden leading-tight md:block">
@@ -247,7 +247,7 @@ export function LayoutApp() {
       </aside>
       {menuAberto && (
         <div className="fixed inset-0 z-40 lg:hidden">
-          <div className="absolute inset-0 bg-floresta-950/40" onClick={() => setMenuAberto(false)} />
+          <div className="absolute inset-0 bg-veu" onClick={() => setMenuAberto(false)} />
           <aside className="animate-entrar absolute top-0 bottom-0 left-0 w-[272px] max-w-[85vw] bg-superficie shadow-[var(--shadow-flutuante)]">
             <button
               type="button"

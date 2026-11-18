@@ -79,7 +79,7 @@ export function ModalBusca({ aberto, textoInicial, aoFechar, aoEscolher }: { abe
                 aria-selected={i === sel}
                 onMouseEnter={() => setSel(i)}
                 onClick={() => aoEscolher(p)}
-                className={`flex cursor-pointer items-center gap-4 rounded-xl px-4 py-3 ${i === sel ? 'bg-floresta-50 ring-1 ring-primaria/30 dark:bg-superficie-2' : 'hover:bg-superficie-2'}`}
+                className={`flex cursor-pointer items-center gap-4 rounded-xl px-4 py-3 ${i === sel ? 'bg-selecao ring-1 ring-primaria/30' : 'hover:bg-superficie-2'}`}
               >
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-semibold text-texto">{p.nome}</p>

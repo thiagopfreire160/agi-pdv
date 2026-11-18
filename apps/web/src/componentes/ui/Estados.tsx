@@ -5,7 +5,7 @@ import { Inbox } from 'lucide-react'
 export function EstadoVazio({ titulo, descricao, icone, acao, compacto }: { titulo: string; descricao?: ReactNode; icone?: ReactNode; acao?: ReactNode; compacto?: boolean }) {
   return (
     <div className={`flex flex-col items-center justify-center text-center ${compacto ? 'py-8' : 'py-14'}`}>
-      <div className="mb-3 flex size-12 items-center justify-center rounded-2xl bg-floresta-50 text-primaria dark:bg-superficie-2">
+      <div className="mb-3 flex size-12 items-center justify-center rounded-2xl bg-selecao text-primaria">
         {icone ?? <Inbox size={22} strokeWidth={1.75} />}
       </div>
       <p className="text-[15px] font-semibold text-texto">{titulo}</p>
@@ -42,12 +42,12 @@ export function Atalho({ tecla, rotulo, escuro, aoClicar }: { tecla: string; rot
       type={aoClicar ? 'button' : undefined}
       onClick={aoClicar}
       className={`inline-flex items-center gap-1.5 rounded-full py-1 pr-3 pl-1 text-xs font-semibold whitespace-nowrap transition-colors ${
-        escuro ? 'bg-white/8 text-white/80 hover:bg-white/14' : 'bg-superficie text-texto-2 shadow-[var(--shadow-card)] hover:text-texto'
+        escuro ? 'bg-creme/8 text-creme/80 hover:bg-creme/14' : 'bg-superficie text-texto-2 shadow-[var(--shadow-card)] hover:text-texto'
       } ${rotulo ? '' : 'pr-1'}`}
     >
       <kbd
         className={`inline-flex h-6 min-w-6 items-center justify-center rounded-full px-1.5 font-sans text-[11px] font-bold ${
-          escuro ? 'bg-white/15 text-white' : 'bg-primaria text-sobre-primaria'
+          escuro ? 'bg-creme/15 text-creme' : 'bg-primaria text-sobre-primaria'
         }`}
       >
         {tecla}

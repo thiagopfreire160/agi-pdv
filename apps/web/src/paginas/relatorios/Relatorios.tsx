@@ -135,7 +135,7 @@ function Filtros({ info, f, set }: { info: RelatorioInfo; f: Record<string, stri
             return produto ? (
               <div key={fl} className="flex flex-col gap-1.5">
                 <span className="text-[13px] font-semibold text-texto-2">Produto</span>
-                <button type="button" onClick={() => { setProduto(null); set('produto_id', '') }} className="flex h-11 items-center rounded-[var(--radius-campo)] border border-primaria bg-floresta-50 px-3.5 text-sm font-semibold text-primaria dark:bg-superficie-2">
+                <button type="button" onClick={() => { setProduto(null); set('produto_id', '') }} className="flex h-11 items-center rounded-[var(--radius-campo)] border border-primaria bg-selecao px-3.5 text-sm font-semibold text-primaria">
                   {produto.nome} ×
                 </button>
               </div>
@@ -226,7 +226,7 @@ export function Relatorios() {
                 type="button"
                 onClick={() => { setCodigo(x.codigo); setFiltros({}) }}
                 className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm transition-colors ${
-                  codigo === x.codigo ? 'bg-floresta-50 font-semibold text-primaria dark:bg-superficie-2' : 'text-texto-2 hover:bg-superficie-2'
+                  codigo === x.codigo ? 'bg-selecao font-semibold text-primaria' : 'text-texto-2 hover:bg-superficie-2'
                 }`}
               >
                 <span className={`flex size-7 shrink-0 items-center justify-center rounded-lg text-[10px] font-bold ${codigo === x.codigo ? 'bg-primaria text-sobre-primaria' : 'bg-superficie-2 text-texto-3'}`}>{x.codigo}</span>
@@ -239,7 +239,7 @@ export function Relatorios() {
           {info && (
             <>
               <div className="mb-4 flex items-center gap-3">
-                <span className="flex size-10 items-center justify-center rounded-xl bg-floresta-50 text-primaria dark:bg-superficie-2">
+                <span className="flex size-10 items-center justify-center rounded-xl bg-selecao text-primaria">
                   <BarChart3 size={20} />
                 </span>
                 <h2 className="text-lg font-bold text-texto">{info.titulo}</h2>

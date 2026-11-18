@@ -175,7 +175,7 @@ function Movimentacoes() {
         {produto ? (
           <div className="flex flex-col gap-1.5">
             <span className="text-[13px] font-semibold text-texto-2">Produto</span>
-            <button type="button" onClick={() => setProduto(null)} className="flex h-11 items-center gap-2 rounded-[var(--radius-campo)] border border-primaria bg-floresta-50 px-3.5 text-sm font-semibold text-primaria dark:bg-superficie-2">
+            <button type="button" onClick={() => setProduto(null)} className="flex h-11 items-center gap-2 rounded-[var(--radius-campo)] border border-primaria bg-selecao px-3.5 text-sm font-semibold text-primaria">
               {produto.nome} ×
             </button>
           </div>

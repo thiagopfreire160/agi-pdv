@@ -14,16 +14,16 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantes: Record<Variante, string> = {
   primario: 'bg-primaria text-sobre-primaria hover:bg-primaria-hover shadow-sm disabled:bg-borda disabled:text-texto-3 disabled:shadow-none disabled:opacity-100',
-  contorno: 'border-[1.5px] border-primaria/70 text-primaria hover:bg-floresta-50 dark:hover:bg-superficie-2 bg-transparent',
+  contorno: 'border-[1.5px] border-primaria/70 text-primaria hover:bg-selecao bg-transparent',
   fantasma: 'text-texto-2 hover:bg-superficie-2 hover:text-texto bg-transparent',
   perigo: 'bg-erro text-white hover:brightness-95 shadow-sm',
-  suave: 'bg-superficie-2 text-texto hover:bg-floresta-50 dark:hover:bg-floresta-900/60',
+  suave: 'bg-superficie-2 text-texto hover:bg-selecao',
 }
 
 const tamanhos: Record<Tamanho, string> = {
-  sm: 'h-9 px-3 text-[13px] gap-1.5 rounded-[10px]',
-  md: 'h-11 px-4 text-sm gap-2 rounded-[var(--radius-campo)]',
-  lg: 'h-12 px-5 text-[15px] gap-2 rounded-[var(--radius-campo)]',
+  sm: 'h-9 px-3.5 text-[13px] gap-1.5 rounded-full',
+  md: 'h-11 px-5 text-sm gap-2 rounded-full',
+  lg: 'h-12 px-6 text-[15px] gap-2 rounded-full',
 }
 
 export const Botao = forwardRef<HTMLButtonElement, Props>(function Botao(

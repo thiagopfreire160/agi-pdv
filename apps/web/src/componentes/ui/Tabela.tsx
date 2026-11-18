@@ -57,7 +57,7 @@ export function Tabela<T>({ colunas, linhas, chaveLinha, carregando, vazio, aoCl
                 key={chave}
                 onClick={aoClicarLinha ? () => aoClicarLinha(l) : undefined}
                 className={`border-b border-borda/70 transition-colors last:border-0 ${aoClicarLinha ? 'cursor-pointer hover:bg-superficie-2' : ''} ${
-                  linhaSelecionada === chave ? 'bg-floresta-50 dark:bg-superficie-2' : ''
+                  linhaSelecionada === chave ? 'bg-selecao' : ''
                 } ${classeLinha?.(l) ?? ''}`}
               >
                 {colunas.map((c) => (

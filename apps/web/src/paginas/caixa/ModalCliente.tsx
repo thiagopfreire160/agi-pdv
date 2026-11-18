@@ -115,7 +115,7 @@ export function ModalCliente({ aberto, aoFechar, aoEscolher, atual }: { aberto: 
                       type="button"
                       onClick={() => escolher(c)}
                       onMouseEnter={() => setSel(i)}
-                      className={`flex w-full items-center gap-3 rounded-xl px-3.5 py-2.5 text-left ${i === sel ? 'bg-floresta-50 dark:bg-superficie-2' : 'hover:bg-superficie-2'}`}
+                      className={`flex w-full items-center gap-3 rounded-xl px-3.5 py-2.5 text-left ${i === sel ? 'bg-selecao' : 'hover:bg-superficie-2'}`}
                     >
                       <span className="min-w-0 flex-1">
                         <span className="block truncate text-sm font-semibold text-texto">{c.nome}</span>

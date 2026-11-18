@@ -19,11 +19,11 @@ import {
 type Agrupamento = 'dia' | 'semana' | 'mes'
 
 const CORES_FORMA: Record<string, string> = {
-  dinheiro: 'var(--color-floresta-600)',
-  pix: 'var(--destaque)',
-  debito: 'var(--color-floresta-300)',
-  credito: 'var(--color-aviso-fg)',
-  vale_troca: 'var(--color-floresta-200)',
+  dinheiro: 'var(--destaque)',
+  pix: 'var(--texto)',
+  debito: 'var(--color-ouro-claro)',
+  credito: 'var(--aviso-fg)',
+  vale_troca: 'var(--texto-3)',
 }
 
 function TooltipCard({ active, payload, label, rotulo }: { active?: boolean; payload?: { value: number; payload: { vendas?: number } }[]; label?: string; rotulo?: (l: string) => string }) {
@@ -91,7 +91,7 @@ function GraficoVendas() {
             <AreaChart data={pontos} margin={{ top: 10, right: 4, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="gradVendas" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="var(--destaque)" stopOpacity={0.4} />
+                  <stop offset="0%" stopColor="var(--destaque)" stopOpacity={0.28} />
                   <stop offset="100%" stopColor="var(--destaque)" stopOpacity={0} />
                 </linearGradient>
               </defs>
@@ -104,8 +104,8 @@ function GraficoVendas() {
                 tick={{ fill: 'var(--texto-3)', fontSize: 11 }}
                 tickFormatter={(v: number) => dinheiroCompacto(v)}
               />
-              <Tooltip content={<TooltipCard />} cursor={{ stroke: 'var(--color-floresta-300)', strokeDasharray: '4 4' }} />
-              <Area type="monotone" dataKey="total" stroke="var(--color-floresta-600)" strokeWidth={2.5} fill="url(#gradVendas)" activeDot={{ r: 5, fill: 'var(--destaque)', stroke: 'var(--superficie)', strokeWidth: 2 }} />
+              <Tooltip content={<TooltipCard />} cursor={{ stroke: 'var(--texto-3)', strokeDasharray: '4 4' }} />
+              <Area type="monotone" dataKey="total" stroke="var(--destaque)" strokeWidth={2.5} fill="url(#gradVendas)" activeDot={{ r: 5, fill: 'var(--destaque)', stroke: 'var(--superficie)', strokeWidth: 2 }} />
             </AreaChart>
           </ResponsiveContainer>
         )}
@@ -143,17 +143,17 @@ function CardCaixaAtual({ total }: { total: number | null }) {
         <path d="M-10 240 C 80 190, 140 290, 220 220 S 320 170, 320 210" stroke="white" strokeWidth="1.2" fill="none" />
       </svg>
       <div className="relative flex items-center justify-between">
-        <p className="text-[15px] font-semibold text-white">Seu caixa</p>
+        <p className="text-[15px] font-semibold text-creme">Seu caixa</p>
         {caixa ? (
-          <span className="rounded-full bg-broto-500/20 px-2.5 py-0.5 text-xs font-semibold text-broto-300">{caixa.vencido ? 'Do dia anterior' : `Nº ${caixa.numero}`}</span>
+          <span className="rounded-full bg-ouro/15 px-2.5 py-0.5 text-xs font-semibold text-ouro-claro">{caixa.vencido ? 'Do dia anterior' : `Nº ${caixa.numero}`}</span>
         ) : (
-          <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-semibold text-white/70">Fechado</span>
+          <span className="rounded-full bg-creme/10 px-2.5 py-0.5 text-xs font-semibold text-creme/70">Fechado</span>
         )}
       </div>
-      <p className="relative mt-4 text-center text-[40px] leading-none font-bold tracking-tight text-white">
-        {caixa ? <Relogio desde={caixa.aberto_em} /> : <span className="tabular text-white/40">00:00:00</span>}
+      <p className="relative mt-4 text-center text-[40px] leading-none font-bold tracking-tight text-creme">
+        {caixa ? <Relogio desde={caixa.aberto_em} /> : <span className="tabular text-creme/40">00:00:00</span>}
       </p>
-      <p className="relative mt-2 text-center text-xs text-white/60">
+      <p className="relative mt-2 text-center text-xs text-creme/60">
         {caixa ? `Aberto às ${hora(caixa.aberto_em)}${total !== null ? ` · ${dinheiro(total)} vendidos` : ''}` : 'Abra o caixa para começar a vender.'}
       </p>
       <div className="relative mt-auto flex items-center justify-center gap-3 pt-4">
@@ -161,7 +161,7 @@ function CardCaixaAtual({ total }: { total: number | null }) {
           type="button"
           onClick={() => navegar('/caixa')}
           aria-label={caixa ? 'Ir para o caixa' : 'Abrir caixa'}
-          className="flex size-12 items-center justify-center rounded-full bg-white text-floresta-800 shadow transition-transform hover:scale-105"
+          className="flex size-12 items-center justify-center rounded-full bg-ouro text-preto shadow transition-transform hover:scale-105"
         >
           {caixa ? <ShoppingCart size={20} /> : <Play size={20} className="ml-0.5" />}
         </button>
@@ -249,7 +249,7 @@ function MaisVendidos({ d }: { d: TDashboard }) {
             const v = por === 'quantidade' ? p.quantidade : p.valor
             return (
               <li key={p.produto_id} className="flex items-center gap-3">
-                <span className={`flex size-8 shrink-0 items-center justify-center rounded-full text-xs font-bold ${i === 0 ? 'bg-primaria text-sobre-primaria' : 'bg-floresta-50 text-floresta-700 dark:bg-superficie-2 dark:text-floresta-200'}`}>
+                <span className={`flex size-8 shrink-0 items-center justify-center rounded-full text-xs font-bold ${i === 0 ? 'bg-primaria text-sobre-primaria' : 'bg-selecao text-destaque
                   {i + 1}
                 </span>
                 <div className="min-w-0 flex-1">

@@ -219,7 +219,7 @@ export function Usuarios() {
       titulo: 'Nome',
       render: (u) => (
         <span className="flex items-center gap-3">
-          <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-floresta-100 text-xs font-bold text-floresta-700 dark:bg-floresta-800 dark:text-floresta-100">{iniciais(u.nome)}</span>
+          <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-selecao text-xs font-bold text-destaque">{iniciais(u.nome)}</span>
           <span>
             <span className="block font-semibold text-texto">{u.nome}</span>
             <span className="text-xs text-texto-3">{u.email}</span>

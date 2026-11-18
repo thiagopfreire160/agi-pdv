@@ -166,7 +166,7 @@ export function ModalPagamento({ aberto, totais, pagamentos, maxParcelas, valePe
                 disabled={pronto}
                 onClick={() => escolher(f)}
                 className={`relative flex flex-col items-center gap-1.5 rounded-2xl border-[1.5px] px-2 py-3.5 text-[13px] font-semibold transition-colors disabled:opacity-40 ${
-                  forma === f ? 'border-primaria bg-floresta-50 text-primaria dark:bg-superficie-2' : 'border-borda text-texto-2 hover:border-floresta-300'
+                  forma === f ? 'border-primaria bg-selecao text-primaria' : 'border-borda text-texto-2 hover:border-destaque/50'
                 }`}
               >
                 <span className="absolute top-1.5 left-2 text-[10px] font-bold text-texto-3">{tecla}</span>
@@ -273,9 +273,9 @@ export function ModalPagamento({ aberto, totais, pagamentos, maxParcelas, valePe
 
         <aside className="flex flex-col gap-3">
           <div className="card-destaque ondas rounded-[var(--radius-card)] p-5">
-            <p className="text-sm font-medium text-white/80">Total da venda</p>
-            <p className="tabular mt-1 text-[40px] leading-none font-extrabold text-white">{dinheiro(totais.total)}</p>
-            {totais.descontoTotal > 0 && <p className="tabular mt-2 text-xs text-floresta-100">Com {dinheiro(totais.descontoTotal)} de desconto</p>}
+            <p className="text-sm font-medium text-creme/80">Total da venda</p>
+            <p className="tabular mt-1 text-[40px] leading-none font-extrabold text-creme">{dinheiro(totais.total)}</p>
+            {totais.descontoTotal > 0 && <p className="tabular mt-2 text-xs text-creme-2">Com {dinheiro(totais.descontoTotal)} de desconto</p>}
           </div>
           <div className="rounded-[var(--radius-card)] bg-superficie-2 p-5">
             <div className="flex justify-between text-sm text-texto-2">

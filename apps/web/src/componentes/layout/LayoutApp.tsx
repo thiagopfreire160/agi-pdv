@@ -27,7 +27,7 @@ function ItemNav({ item, aoNavegar }: { item: ItemMenu; aoNavegar?: () => void }
     >
       {({ isActive }) => (
         <>
-          {isActive && <span className="absolute top-2 bottom-2 -left-3 w-[3px] rounded-r-full bg-primaria" />}
+          {isActive && <span className="absolute top-2 bottom-2 -left-3 w-[3px] rounded-r-full bg-destaque" />}
           <Icone size={18} strokeWidth={1.75} />
           {item.rotulo}
         </>

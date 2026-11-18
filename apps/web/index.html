@@ -1,19 +1,19 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/marca/nexo-claro-32.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/marca/nexo-claro-192.png" />
-    <link rel="apple-touch-icon" href="/marca/nexo-claro-192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/marca/agi-icone-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/marca/agi-icone-192.png" />
+    <link rel="apple-touch-icon" href="/marca/agi-icone-192.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#1f5e3b" />
-    <title>NEXO PDV</title>
+    <meta name="theme-color" content="#0B0B0C" />
+    <title>agi pdv</title>
     <script>
       (function () {
         var t = null;
-        try { t = localStorage.getItem('nexo-tema'); } catch (e) {}
-        var escuro = t === 'escuro' || ((!t || t === 'sistema') && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        if (escuro) document.documentElement.classList.add('dark');
+        try { t = localStorage.getItem('agipdv-tema'); } catch (e) {}
+        var escuro = !t || t === 'escuro' || (t === 'sistema' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.classList.toggle('dark', escuro);
       })();
     </script>
   </head>

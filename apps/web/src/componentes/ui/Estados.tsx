@@ -46,7 +46,7 @@ export function Atalho({ tecla, rotulo, escuro, aoClicar }: { tecla: string; rot
       } ${rotulo ? '' : 'pr-1'}`}
     >
       <kbd
-        className={`inline-flex h-6 min-w-6 items-center justify-center rounded-full px-1.5 font-sans text-[11px] font-bold ${
+        className={`inline-flex h-6 min-w-6 items-center justify-center rounded-full px-1.5 font-mono text-[11px] font-semibold ${
           escuro ? 'bg-creme/15 text-creme' : 'bg-primaria text-sobre-primaria'
         }`}
       >

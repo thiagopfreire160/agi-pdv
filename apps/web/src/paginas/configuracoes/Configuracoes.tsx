@@ -142,8 +142,8 @@ function Aparencia() {
   const { tema } = useTema()
   const { escolher } = useAlternarTema()
   const opcoes: { t: Tema; rotulo: string; icone: typeof Sun; desc: string }[] = [
-    { t: 'claro', rotulo: 'Claro', icone: Sun, desc: 'Fundo claro, bom para lojas iluminadas.' },
-    { t: 'escuro', rotulo: 'Escuro', icone: Moon, desc: 'Cansa menos a vista à noite.' },
+    { t: 'claro', rotulo: 'Claro', icone: Sun, desc: 'Fundo creme, bom para lojas bem iluminadas.' },
+    { t: 'escuro', rotulo: 'Escuro', icone: Moon, desc: 'Padrão. Cansa menos a vista à noite.' },
     { t: 'sistema', rotulo: 'Igual ao computador', icone: Laptop, desc: 'Usa o tema claro ou escuro do computador.' },
   ]
   return (

@@ -1,16 +1,16 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import type { Tema } from '../api/tipos'
 
-const CHAVE = 'nexo-tema'
+const CHAVE = 'agipdv-tema'
 
 function lerTemaSalvo(): Tema {
   try {
     const t = localStorage.getItem(CHAVE)
     if (t === 'claro' || t === 'escuro' || t === 'sistema') return t
   } catch {
-    /* navegador sem localStorage: segue o sistema */
+    /* navegador sem localStorage: usa o padrão */
   }
-  return 'sistema'
+  return 'escuro'
 }
 
 function salvarTema(t: Tema) {
@@ -50,10 +50,6 @@ export function ProvedorTema({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', escuro)
-    const icone = document.querySelectorAll<HTMLLinkElement>('link[rel="icon"]')
-    icone.forEach((l) => {
-      l.href = l.href.replace(/nexo-(claro|escuro)-/, escuro ? 'nexo-escuro-' : 'nexo-claro-')
-    })
   }, [escuro])
 
   const definirTema = useCallback((t: Tema) => {

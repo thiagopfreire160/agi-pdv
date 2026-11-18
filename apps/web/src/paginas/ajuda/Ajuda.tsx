@@ -29,7 +29,7 @@ const PASSOS = [
 export function Ajuda() {
   return (
     <div>
-      <CabecalhoPagina titulo="Ajuda" descricao="O básico para usar o NEXO PDV no dia a dia." />
+      <CabecalhoPagina titulo="Ajuda" descricao="O básico para usar o agi pdv no dia a dia." />
       <div className="grid gap-4 xl:grid-cols-[1fr_420px] xl:gap-5">
         <Card>
           <CabecalhoCard titulo="Passo a passo do dia" />
@@ -79,7 +79,7 @@ export function Ajuda() {
             </div>
             <div>
               <dt className="font-semibold text-texto">O recibo não é nota fiscal?</dt>
-              <dd className="mt-1 text-texto-2">Não. O NEXO PDV emite comprovante não fiscal. Ajuste a impressão em <Link className="font-semibold text-primaria underline" to="/configuracoes">Configurações</Link>.</dd>
+              <dd className="mt-1 text-texto-2">Não. O agi pdv emite comprovante não fiscal. Ajuste a impressão em <Link className="font-semibold text-primaria underline" to="/configuracoes">Configurações</Link>.</dd>
             </div>
           </dl>
         </Card>

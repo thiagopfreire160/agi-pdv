@@ -1,13 +1,13 @@
-# Design system do NEXO PDV
+# Design system do agi pdv
 
 Fonte única dos tokens: `brand/tokens.css`. Nunca escreva cor em hexadecimal num componente. Use as classes semânticas (`bg-superficie`, `text-texto-2`, `bg-primaria`...). É isso que faz o tema escuro funcionar sem retrabalho.
 
 ## Marca
 
-- **Logo para fundo claro:** `brand/nexo-logo-claro.png` (o "N" fica verde-floresta).
-- **Logo para fundo escuro:** `brand/nexo-logo-escuro.png` (o "N" fica branco).
-- Ícones prontos em 32, 64, 192 e 512 px (`brand/nexo-claro-*.png`, `brand/nexo-escuro-*.png`).
-- O nome sempre aparece como **NEXO PDV**: "NEXO" em peso 800, "PDV" em peso 500 e na cor `text-texto-3`.
+- **Logo para fundo claro:** `brand/agipdv-logo-claro.png` (o "N" fica verde-floresta).
+- **Logo para fundo escuro:** `brand/agipdv-logo-escuro.png` (o "N" fica branco).
+- Ícones prontos em 32, 64, 192 e 512 px (`brand/agipdv-claro-*.png`, `brand/agipdv-escuro-*.png`).
+- O nome sempre aparece como **agi pdv**: "agi pdv" em peso 800, "PDV" em peso 500 e na cor `text-texto-3`.
 - Espaço livre em volta do logo: pelo menos 1/4 da largura dele.
 
 ## Cores

@@ -1,8 +1,8 @@
 // Venda em andamento: vive só no terminal (localStorage) até a finalização (seção 5.3).
 import type { Forma, Produto } from '../../api/tipos'
 
-export const CHAVE_VENDA = 'nexo-venda-andamento'
-export const CHAVE_TERMINAL = 'nexo-terminal'
+export const CHAVE_VENDA = 'agipdv-venda-andamento'
+export const CHAVE_TERMINAL = 'agipdv-terminal'
 
 export interface ItemLocal {
   chave: string

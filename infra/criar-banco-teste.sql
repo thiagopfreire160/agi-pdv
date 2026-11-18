@@ -1,1 +1,1 @@
-CREATE DATABASE nexo_test;
+CREATE DATABASE agipdv_test;

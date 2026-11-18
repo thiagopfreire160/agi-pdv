@@ -30,12 +30,12 @@ export class Cliente {
   async req(metodo: 'GET' | 'POST' | 'PUT' | 'DELETE', url: string, corpo?: unknown, extras: Record<string, string> = {}): Promise<Resposta> {
     const a = await obterApp();
     const headers: Record<string, string> = { ...extras };
-    if (metodo !== 'GET' && !('x-nexo-csrf' in extras)) headers['x-nexo-csrf'] = '1';
+    if (metodo !== 'GET' && !('x-agi-csrf' in extras)) headers['x-agi-csrf'] = '1';
     if (this.cookie) headers.cookie = this.cookie;
     const r = await a.inject({ method: metodo, url, payload: corpo as object | undefined, headers, remoteAddress: this.ip });
     const setCookie = r.headers['set-cookie'];
     if (setCookie) {
-      const c = (Array.isArray(setCookie) ? setCookie : [setCookie]).find((x) => x.startsWith('nexo_sessao='));
+      const c = (Array.isArray(setCookie) ? setCookie : [setCookie]).find((x) => x.startsWith('agipdv_sessao='));
       if (c) this.cookie = c.split(';')[0].endsWith('=') ? null : c.split(';')[0];
     }
     let json: unknown = null;

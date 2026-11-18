@@ -1,14 +1,14 @@
 <p align="center">
-  <img src="brand/nexo-claro-192.png" width="96" alt="Logo do NEXO PDV">
+  <img src="brand/agi-icone-192.png" width="96" alt="Logo do agi pdv">
 </p>
 
-# NEXO PDV
+# agi pdv
 
 Ponto de venda gratuito para mercadinho, loja de bairro e pequeno comércio. Roda no computador da loja, abre no navegador e funciona nos outros computadores da mesma rede.
 
 Página do projeto: https://thiagopfreire160.github.io/nexo-pdv/
 
-![Dashboard do NEXO PDV](docs/capturas/dashboard-claro.png)
+![Dashboard do agi pdv](docs/capturas/dashboard-claro.png)
 
 ## O que ele faz
 
@@ -25,7 +25,7 @@ Página do projeto: https://thiagopfreire160.github.io/nexo-pdv/
 
 ## Começar
 
-**Para usar na loja (Windows):** baixe e rode o [NEXO-PDV-Setup.exe](https://github.com/thiagopfreire160/nexo-pdv/releases/latest/download/NEXO-PDV-Setup.exe) (todas as versões ficam em [Releases](https://github.com/thiagopfreire160/nexo-pdv/releases)). Ele instala tudo, inclusive o banco de dados, e cria o atalho na área de trabalho. Detalhes em [docs/TUTORIAL.md](docs/TUTORIAL.md).
+**Para usar na loja (Windows):** baixe e rode o [agi-pdv-Setup.exe](https://github.com/thiagopfreire160/nexo-pdv/releases/latest/download/agi-pdv-Setup.exe) (todas as versões ficam em [Releases](https://github.com/thiagopfreire160/nexo-pdv/releases)). Ele instala tudo, inclusive o banco de dados, e cria o atalho na área de trabalho. Detalhes em [docs/TUTORIAL.md](docs/TUTORIAL.md).
 
 **Para desenvolver:**
 
@@ -46,9 +46,9 @@ npm run db:migrar
 npm run dev
 ```
 
-No Windows, depois da primeira vez, basta dar dois cliques em `ferramentas\iniciar-nexo.bat`.
+No Windows, depois da primeira vez, basta dar dois cliques em `ferramentas\iniciar-agipdv.bat`.
 
-Abra http://localhost:5173 e siga o primeiro acesso. Para ver uma loja de exemplo com 60 dias de vendas, rode `npm run db:semente -- --limpar` (apaga o banco) e entre com `admin@nexo.local` e a senha `Admin@123`.
+Abra http://localhost:5173 e siga o primeiro acesso. Para ver uma loja de exemplo com 60 dias de vendas, rode `npm run db:semente -- --limpar` (apaga o banco) e entre com `admin@agipdv.local` e a senha `Admin@123`.
 
 Na loja, use `npm run loja` e abra `http://IP-DO-SERVIDOR:3333` em qualquer computador da rede.
 
@@ -62,7 +62,7 @@ Na loja, use `npm run loja` e abra `http://IP-DO-SERVIDOR:3333` em qualquer comp
 | [docs/especificacao.md](docs/especificacao.md) | regras de negócio completas |
 | [docs/api.md](docs/api.md) | rotas da API |
 | [docs/design-system.md](docs/design-system.md) | cores, fontes e componentes |
-| [.claude/skills/nexo-pdv/SKILL.md](.claude/skills/nexo-pdv/SKILL.md) | guia para quem (ou qual IA) for mexer no código |
+| [.claude/skills/agi-pdv/SKILL.md](.claude/skills/agi-pdv/SKILL.md) | guia para quem (ou qual IA) for mexer no código |
 
 ## Tecnologia
 
@@ -70,7 +70,7 @@ React 19, Vite, TypeScript e Tailwind no navegador. Node 22, Fastify e PostgreSQ
 
 ## Origem
 
-Ideia inspirada no [Hórus PDV](https://github.com/flaviooliveira-code/horus_pdv), de Flávio Oliveira. O NEXO foi escrito do zero, em processo clean room, sem código nem textos do original. O registro está em [docs/CLEAN-ROOM.md](docs/CLEAN-ROOM.md).
+Ideia inspirada no [Hórus PDV](https://github.com/flaviooliveira-code/horus_pdv), de Flávio Oliveira. O agi pdv foi escrito do zero, em processo clean room, sem código nem textos do original. O registro está em [docs/CLEAN-ROOM.md](docs/CLEAN-ROOM.md).
 
 ## Licença
 

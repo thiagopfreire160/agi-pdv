@@ -4,13 +4,13 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ${NEXO_SENHA_BANCO:-nexo}
-      POSTGRES_DB: nexo
+      POSTGRES_PASSWORD: ${AGI_SENHA_BANCO:-agipdv}
+      POSTGRES_DB: agipdv
     ports:
       - "5432:5432"
     volumes:
-      - nexo_dados:/var/lib/postgresql/data
+      - agipdv_dados:/var/lib/postgresql/data
       - ./infra/criar-banco-teste.sql:/docker-entrypoint-initdb.d/criar-banco-teste.sql:ro
 
 volumes:
-  nexo_dados:
+  agipdv_dados:

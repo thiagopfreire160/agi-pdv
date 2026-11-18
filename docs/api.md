@@ -1,4 +1,4 @@
-# NEXO PDV — API v1
+# agi pdv: API v1
 
 Referência completa da API REST usada pelo front. Regras de negócio: `docs/especificacao.md` (a seção indicada entre parênteses em cada rota).
 
@@ -8,11 +8,11 @@ Referência completa da API REST usada pelo front. Regras de negócio: `docs/esp
 
 ```bash
 npm install                       # na raiz (npm workspaces)
-npm run db:up                     # Postgres 16 via Docker (usuário postgres / senha nexo / banco nexo e nexo_test)
+npm run db:up                     # Postgres 16 via Docker (usuário postgres / senha agipdv / banco agipdv e agipdv_test)
 npm run db:migrar                 # aplica as migrações em apps/api/src/db/migracoes
 npm run db:semente -- --limpar    # dados de demonstração (apaga tudo antes)
 npm run dev                       # API em http://localhost:3333 (+ web, quando existir)
-npm test                          # testes (Vitest) no banco nexo_test
+npm test                          # testes (Vitest) no banco agipdv_test
 npm run build                     # compila a API para apps/api/dist
 ```
 
@@ -22,9 +22,9 @@ Configuração: `apps/api/.env` (modelo em `apps/api/.env.example`). Variáveis:
 
 | Perfil | E-mail | Senha |
 |---|---|---|
-| Administrador | admin@nexo.local | Admin@123 |
-| Gerente | gerente@nexo.local | Gerente@123 |
-| Caixa | caixa@nexo.local | Caixa@123 |
+| Administrador | admin@agipdv.local | Admin@123 |
+| Gerente | gerente@agipdv.local | Gerente@123 |
+| Caixa | caixa@agipdv.local | Caixa@123 |
 
 A semente cria o "Mercadinho Bom Preço": 44 produtos em 9 categorias (inclui itens por KG e uma sacola sem controle de estoque), 15 clientes, 5 fornecedores, ~60 dias de vendas (todas as formas de pagamento, pagamentos divididos, vales-troca, descontos autorizados, cancelamentos, devoluções, sangrias, suprimentos, fechamentos com sobras/faltas), entradas de mercadoria, 3 produtos com estoque baixo e o caixa da Carla aberto hoje.
 
@@ -43,8 +43,8 @@ Gera uma senha temporária (exibida no terminal), marca "deve trocar senha", rea
 ### 1.1 Base, sessão e CSRF
 
 - Base: `http://localhost:3333/api`. No front (Vite em :5173), configure o proxy de `/api` para `http://localhost:3333` — assim o cookie é de mesma origem. Se chamar a API direto, use `credentials: 'include'` (CORS liberado para `ORIGEM_WEB`).
-- Sessão: cookie `nexo_sessao` (HttpOnly, SameSite=Lax, Path=/; Secure com `COOKIE_SEGURO=true`). O front **não** lê nem guarda o identificador. Basta enviar o cookie.
-- **CSRF:** toda requisição `POST`, `PUT` e `DELETE` precisa do cabeçalho **`X-Nexo-Csrf: 1`**. Sem ele: `403 {codigo:"CSRF"}`. Se houver cabeçalho `Origin`, ele precisa ser a própria API ou estar em `ORIGEM_WEB`.
+- Sessão: cookie `agipdv_sessao` (HttpOnly, SameSite=Lax, Path=/; Secure com `COOKIE_SEGURO=true`). O front **não** lê nem guarda o identificador. Basta enviar o cookie.
+- **CSRF:** toda requisição `POST`, `PUT` e `DELETE` precisa do cabeçalho **`X-Agi-Csrf: 1`**. Sem ele: `403 {codigo:"CSRF"}`. Se houver cabeçalho `Origin`, ele precisa ser a própria API ou estar em `ORIGEM_WEB`.
 - Corpo em JSON (`Content-Type: application/json`). Corpo vazio é aceito e vale `{}`.
 - Permissões e perfis são verificados na API em toda requisição. O perfil do usuário é relido a cada chamada.
 
@@ -81,7 +81,7 @@ Toda resposta de erro tem o formato:
 | 401 | `CREDENCIAIS_INVALIDAS` | login ou credencial do autorizador incorretos (mensagem genérica) |
 | 403 | `SEM_PERMISSAO` | perfil sem permissão |
 | 403 | `TROCA_SENHA_OBRIGATORIA` | usuário precisa trocar a senha antes de qualquer outra tela |
-| 403 | `CSRF` | falta `X-Nexo-Csrf: 1` ou origem não permitida |
+| 403 | `CSRF` | falta `X-Agi-Csrf: 1` ou origem não permitida |
 | 403 | `AUTORIZACAO_NECESSARIA` | ação exige autorização de supervisor (traz `acao`; ver §3) |
 | 403 | `AUTORIZACAO_NEGADA` | autorizador sem permissão/limite |
 | 403 | `AUTORIZACAO_INVALIDA` | token de autorização inválido, usado, expirado ou de outra ação |
@@ -153,7 +153,7 @@ Erros: CNPJ inválido (`campos["empresa.cnpj"]`), senha fora da política (8–7
 **Usuario**
 
 ```json
-{ "id": "uuid", "nome": "Ana Paula Ribeiro", "email": "admin@nexo.local", "cpf": "12345678909", "telefone": "11999990000",
+{ "id": "uuid", "nome": "Ana Paula Ribeiro", "email": "admin@agipdv.local", "cpf": "12345678909", "telefone": "11999990000",
   "perfil": "administrador", "deve_trocar_senha": false, "ativo": true, "ultimo_acesso": "ISO", "tema": "sistema",
   "versao": 1, "criado_em": "ISO" }
 ```

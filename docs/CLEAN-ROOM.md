@@ -1,6 +1,6 @@
 # Registro do processo clean room
 
-O NEXO PDV foi escrito do zero. A ideia de produto veio do Hórus PDV, de Flávio Oliveira (licença MIT), mas nenhuma linha de código, texto de interface ou elemento visual dele foi copiada. Este arquivo registra como a separação foi feita.
+O agi pdv foi escrito do zero. A ideia de produto veio do Hórus PDV, de Flávio Oliveira (licença MIT), mas nenhuma linha de código, texto de interface ou elemento visual dele foi copiada. Este arquivo registra como a separação foi feita.
 
 ## Etapas
 
@@ -25,6 +25,6 @@ Não abra o código do Hórus para "ver como ele fez". Se precisar de um comport
 
 ## Varredura final (15/11/2026, 03:35)
 
-Todo o código, a documentação e a landing do NEXO foram comparados com o original em sequências de 8 palavras normalizadas, por um revisor, numa cópia temporária apagada logo depois. As coincidências encontradas são de código-padrão que qualquer projeto com a mesma tecnologia tem: modelo de `index.html` do Vite, sequências de classes do Tailwind, importações do React, reset de CSS, lista de UFs, pesos do dígito verificador de CPF e CNPJ, opções de formatação de data do JavaScript e o link de acessibilidade "Pular para o conteúdo". Nenhum texto de interface, regra escrita ou trecho de lógica de negócio do original aparece no NEXO. A única frase de validação coincidente ("o preço de venda deve ser maior que zero") foi reescrita por precaução.
+Todo o código, a documentação e a landing do agi pdv foram comparados com o original em sequências de 8 palavras normalizadas, por um revisor, numa cópia temporária apagada logo depois. As coincidências encontradas são de código-padrão que qualquer projeto com a mesma tecnologia tem: modelo de `index.html` do Vite, sequências de classes do Tailwind, importações do React, reset de CSS, lista de UFs, pesos do dígito verificador de CPF e CNPJ, opções de formatação de data do JavaScript e o link de acessibilidade "Pular para o conteúdo". Nenhum texto de interface, regra escrita ou trecho de lógica de negócio do original aparece no agi pdv. A única frase de validação coincidente ("o preço de venda deve ser maior que zero") foi reescrita por precaução.
 
 Além deste registro, o nome do original só aparece no crédito do README, da landing e da skill, e na linha de procedência da especificação.

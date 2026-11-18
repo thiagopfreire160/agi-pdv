@@ -1,5 +1,5 @@
 // Cliente HTTP da API. Cookie de sessão vai junto (mesma origem via proxy do Vite).
-// Toda requisição que altera dados envia o cabeçalho X-Nexo-Csrf: 1.
+// Toda requisição que altera dados envia o cabeçalho X-Agi-Csrf: 1.
 
 export class ErroApi extends Error {
   status: number
@@ -52,7 +52,7 @@ async function requisitar<T>(metodo: string, caminho: string, corpo?: unknown, p
       credentials: 'include',
       headers: {
         Accept: 'application/json',
-        ...(altera ? { 'X-Nexo-Csrf': '1', 'Content-Type': 'application/json' } : {}),
+        ...(altera ? { 'X-Agi-Csrf': '1', 'Content-Type': 'application/json' } : {}),
       },
       body: altera ? JSON.stringify(corpo ?? {}) : undefined,
     })

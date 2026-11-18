@@ -45,7 +45,7 @@ try {
 } catch (e) {
   const erro = e as { code?: string; message?: string };
   if (erro.code === 'ECONNREFUSED') console.error('Não consegui conectar ao banco. Abra o Docker Desktop e rode npm run db:up.');
-  else if (erro.code === '28P01') console.error('A senha do banco não confere. A senha em apps/api/.env precisa ser igual à de NEXO_SENHA_BANCO no .env da raiz.');
+  else if (erro.code === '28P01') console.error('A senha do banco não confere. A senha em apps/api/.env precisa ser igual à de AGI_SENHA_BANCO no .env da raiz.');
   else if (erro.code === '42P01') console.error('As tabelas ainda não existem. Rode npm run db:migrar.');
   else console.error(`Erro: ${erro.message ?? e}`);
   process.exitCode = 1;

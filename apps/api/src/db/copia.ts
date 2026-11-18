@@ -2,7 +2,7 @@
 // Usa o COPY do próprio PostgreSQL, tabela por tabela, num arquivo .gz.
 //
 // Formato (dentro do gzip):
-//   NEXO-BACKUP 1\n
+//   AGIPDV-BACKUP 1\n
 //   {json com data, migrações e colunas de cada tabela}\n
 //   para cada tabela: "@@TABELA <nome> <bytes>\n" seguido dos bytes do COPY em texto
 import pg from 'pg';
@@ -40,7 +40,7 @@ export async function gerarBackup(url: string, saida: Writable): Promise<{ tabel
       ? (await c.query<{ name: string }>('select name from migracoes order by name')).rows.map((r) => r.name)
       : [];
     const meta: Meta = { versao: 1, criado_em: new Date().toISOString(), migracoes, tabelas };
-    await escrever(`NEXO-BACKUP 1\n${JSON.stringify(meta)}\n`);
+    await escrever(`AGIPDV-BACKUP 1\n${JSON.stringify(meta)}\n`);
     for (const t of tabelas) {
       const partes: Buffer[] = [];
       const colunas = t.colunas.map(nomeSeguro).join(', ');
@@ -70,7 +70,7 @@ export async function restaurarBackup(url: string, conteudo: Buffer): Promise<{ 
     pos = fim + 1;
     return s;
   };
-  if (linha() !== 'NEXO-BACKUP 1') throw new Error('Este arquivo não é um backup do NEXO.');
+  if (linha() !== 'AGIPDV-BACKUP 1') throw new Error('Este arquivo não é um backup do agi pdv.');
   const meta = JSON.parse(linha()) as Meta;
   const partes: { nome: string; dados: Buffer }[] = [];
   while (pos < conteudo.length) {

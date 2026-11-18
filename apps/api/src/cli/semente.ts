@@ -187,9 +187,9 @@ async function semear(db: Banco) {
 
   // Usuários
   const usuarios = {
-    admin: { id: randomUUID(), nome: 'Ana Paula Ribeiro', email: 'admin@nexo.local', perfil: 'administrador', senha: 'Admin@123', cpf: gerarCpf('123456789') },
-    gerente: { id: randomUUID(), nome: 'Bruno Carvalho', email: 'gerente@nexo.local', perfil: 'gerente', senha: 'Gerente@123', cpf: gerarCpf('987654321') },
-    caixa: { id: randomUUID(), nome: 'Carla Mendes', email: 'caixa@nexo.local', perfil: 'caixa', senha: 'Caixa@123', cpf: gerarCpf('456789123') },
+    admin: { id: randomUUID(), nome: 'Ana Paula Ribeiro', email: 'admin@agipdv.local', perfil: 'administrador', senha: 'Admin@123', cpf: gerarCpf('123456789') },
+    gerente: { id: randomUUID(), nome: 'Bruno Carvalho', email: 'gerente@agipdv.local', perfil: 'gerente', senha: 'Gerente@123', cpf: gerarCpf('987654321') },
+    caixa: { id: randomUUID(), nome: 'Carla Mendes', email: 'caixa@agipdv.local', perfil: 'caixa', senha: 'Caixa@123', cpf: gerarCpf('456789123') },
   };
   const criadoEm = instante(somarDias(inicio, -1), 8, 0);
   for (const u of Object.values(usuarios)) {

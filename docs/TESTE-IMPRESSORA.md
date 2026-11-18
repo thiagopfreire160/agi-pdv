@@ -2,9 +2,9 @@
 
 Leva uns 10 minutos, com a impressora térmica ligada e instalada no Windows.
 
-1. Instale o driver da impressora e imprima a página de teste do Windows. Se essa página não sair, o problema está no driver, não no NEXO.
+1. Instale o driver da impressora e imprima a página de teste do Windows. Se essa página não sair, o problema está no driver, não no agi pdv.
 2. No Windows, em **Impressoras e scanners**, abra a impressora, vá em **Preferências de impressão** e escolha o papel de 80 mm (ou 58 mm) com o comprimento contínuo ou "rolo".
-3. No NEXO, em **Configurações → Recibo**, escolha o mesmo tamanho de papel.
+3. No agi pdv, em **Configurações → Recibo**, escolha o mesmo tamanho de papel.
 4. Abra o caixa e faça uma venda de teste. Na janela de impressão do navegador:
    - escolha a impressora térmica;
    - **Margens:** nenhuma;

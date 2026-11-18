@@ -96,7 +96,7 @@ describe('login e sessão', () => {
   it('requisição que altera dados sem o cabeçalho anti-CSRF é recusada', async () => {
     const a = new Cliente();
     await a.entrar('admin@teste.com');
-    const r = await a.req('POST', '/api/categorias', { nome: 'X' }, { 'x-nexo-csrf': '0' });
+    const r = await a.req('POST', '/api/categorias', { nome: 'X' }, { 'x-agi-csrf': '0' });
     expect(r.status).toBe(403);
     const r2 = await a.req('POST', '/api/categorias', { nome: 'X' }, { origin: 'http://malicioso.com' });
     expect(r2.status).toBe(403);

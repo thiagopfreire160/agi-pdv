@@ -1,4 +1,4 @@
-# NEXO PDV — Especificação Funcional v1
+# agi pdv: especificação funcional v1
 
 > Especificação funcional escrita a partir da observação do Hórus PDV (MIT). Não contém código nem textos do original.
 
@@ -39,7 +39,7 @@ Público: desenvolvedor(a) responsável pela implementação (front React + Vite
 
 ### 1.1 O que é
 
-O NEXO PDV é um sistema de ponto de venda para pequenos comércios de varejo (mercearias, lojas de roupa, papelarias, lojas de material, conveniências). Ele cobre o cadastro do que se vende, a operação diária do caixa, o controle de estoque, as trocas e os números que o dono precisa ver no fim do dia e do mês.
+O agi pdv é um sistema de ponto de venda para pequenos comércios de varejo (mercearias, lojas de roupa, papelarias, lojas de material, conveniências). Ele cobre o cadastro do que se vende, a operação diária do caixa, o controle de estoque, as trocas e os números que o dono precisa ver no fim do dia e do mês.
 
 A v1 **não emite documento fiscal** (NFC-e/NF-e) e **não se integra a maquininhas ou bancos**. Todas as formas de pagamento são registradas manualmente pelo operador: o cliente paga na maquininha ou no PIX da loja, e o operador apenas informa no sistema como a venda foi paga.
 

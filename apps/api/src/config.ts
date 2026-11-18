@@ -7,7 +7,7 @@ function texto(nome: string, padrao: string): string {
 
 export const config = {
   ambiente: texto('NODE_ENV', 'development'),
-  databaseUrl: texto('DATABASE_URL', 'postgres://postgres:nexo@localhost:5432/nexo'),
+  databaseUrl: texto('DATABASE_URL', 'postgres://postgres:agipdv@localhost:5432/agipdv'),
   porta: Number(texto('PORTA', '3333')),
   host: texto('HOST', '0.0.0.0'),
   segredoSessao: texto('SEGREDO_SESSAO', 'segredo-de-desenvolvimento-nao-usar-em-producao'),
@@ -17,7 +17,7 @@ export const config = {
     .filter(Boolean),
   cookieSeguro: texto('COOKIE_SEGURO', 'false') === 'true',
   nivelLog: texto('NIVEL_LOG', 'info'),
-  nomeCookie: 'nexo_sessao',
+  nomeCookie: 'agipdv_sessao',
 };
 
 export const emTeste = config.ambiente === 'test';

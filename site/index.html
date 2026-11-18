@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NEXO PDV: ponto de venda gratuito e de código aberto</title>
-<meta name="description" content="NEXO PDV é um sistema de ponto de venda gratuito e de código aberto (MIT) para o pequeno comércio: frente de caixa com leitor de código de barras, estoque, trocas com vale-troca e relatórios que abrem no Excel.">
+<title>agi pdv: ponto de venda gratuito e de código aberto</title>
+<meta name="description" content="agi pdv é um sistema de ponto de venda gratuito e de código aberto (MIT) para o pequeno comércio: frente de caixa com leitor de código de barras, estoque, trocas com vale-troca e relatórios que abrem no Excel.">
 <meta name="theme-color" content="#1f5e3b">
-<meta property="og:title" content="NEXO PDV">
+<meta property="og:title" content="agi pdv">
 <meta property="og:description" content="Ponto de venda gratuito e de código aberto para o pequeno comércio.">
 <meta property="og:image" content="img/dashboard-claro.webp">
-<link rel="icon" type="image/png" sizes="32x32" href="img/nexo-claro-32.png">
-<link rel="apple-touch-icon" href="img/nexo-claro-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/agipdv-claro-32.png">
+<link rel="apple-touch-icon" href="img/agipdv-claro-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
   /* Aplica o tema antes de desenhar a página, para não piscar. */
   (function () {
     var salvo = null;
-    try { salvo = localStorage.getItem('nexo-tema'); } catch (e) {}
+    try { salvo = localStorage.getItem('agipdv-tema'); } catch (e) {}
     var escuro = salvo ? salvo === 'escuro' : window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (escuro) document.documentElement.classList.add('dark');
   })();
@@ -282,10 +282,10 @@
 
 <header class="container topo">
   <div class="topo-barra">
-    <a class="marca" href="#" aria-label="NEXO PDV, início">
-      <img class="so-claro" src="img/nexo-logo-claro.webp" alt="" width="34" height="34">
-      <img class="so-escuro" src="img/nexo-logo-escuro.webp" alt="" width="34" height="34">
-      <span class="marca-nome" aria-hidden="true"><b>NEXO</b> <span>PDV</span></span>
+    <a class="marca" href="#" aria-label="agi pdv, início">
+      <img class="so-claro" src="img/agipdv-logo-claro.webp" alt="" width="34" height="34">
+      <img class="so-escuro" src="img/agipdv-logo-escuro.webp" alt="" width="34" height="34">
+      <span class="marca-nome" aria-hidden="true"><b>agi pdv</b> <span>PDV</span></span>
     </a>
     <nav class="nav" id="nav" aria-label="Principal">
       <ul>
@@ -310,9 +310,9 @@
   <section class="container heroi" aria-labelledby="titulo">
     <span class="selo">Código aberto, licença MIT</span>
     <h1 id="titulo">Ponto de venda gratuito para o <em>pequeno comércio</em></h1>
-    <p class="lead">O NEXO PDV registra as vendas no caixa, controla o estoque e faz trocas com vale-troca pelo navegador, com o servidor rodando num computador da própria loja.</p>
+    <p class="lead">O agi pdv registra as vendas no caixa, controla o estoque e faz trocas com vale-troca pelo navegador, com o servidor rodando num computador da própria loja.</p>
     <div class="acoes">
-      <a class="botao botao-primario" href="https://github.com/thiagopfreire160/nexo-pdv/releases/latest/download/NEXO-PDV-Setup.exe">
+      <a class="botao botao-primario" href="https://github.com/thiagopfreire160/nexo-pdv/releases/latest/download/agi-pdv-Setup.exe">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
         Baixar para Windows
       </a>
@@ -325,9 +325,9 @@
       <div class="moldura">
         <div class="moldura-barra" aria-hidden="true"><i></i><i></i><i></i><span class="endereco">localhost:5173</span></div>
         <img class="so-claro" src="img/dashboard-claro.webp" width="1440" height="900" fetchpriority="high"
-             alt="Dashboard do NEXO PDV: R$ 196,08 vendidos hoje, R$ 15.424,56 no mês, gráfico de vendas dos últimos 30 dias, caixa aberto por Carla Mendes e lista de produtos com estoque baixo.">
+             alt="Dashboard do agi pdv: R$ 196,08 vendidos hoje, R$ 15.424,56 no mês, gráfico de vendas dos últimos 30 dias, caixa aberto por Carla Mendes e lista de produtos com estoque baixo.">
         <img class="so-escuro" src="img/dashboard-escuro.webp" width="1440" height="900" loading="lazy"
-             alt="Dashboard do NEXO PDV no tema escuro: vendas de hoje e do mês, gráfico dos últimos 30 dias, caixas abertos e produtos com estoque baixo.">
+             alt="Dashboard do agi pdv no tema escuro: vendas de hoje e do mês, gráfico dos últimos 30 dias, caixas abertos e produtos com estoque baixo.">
       </div>
       <div class="celular">
         <img class="so-claro" src="img/celular-dashboard-claro.webp" width="390" height="844" loading="lazy" alt="O mesmo dashboard aberto no navegador de um celular.">
@@ -483,8 +483,8 @@
     <div class="painel" role="tabpanel" id="p-celular" aria-labelledby="aba-celular" tabindex="0" hidden>
       <div class="painel-celular">
         <div class="celular">
-          <img class="so-claro" src="img/celular-dashboard-claro.webp" width="390" height="844" loading="lazy" alt="Dashboard do NEXO PDV na tela de um celular, com os cartões de vendas empilhados.">
-          <img class="so-escuro" src="img/celular-dashboard-escuro.webp" width="390" height="844" loading="lazy" alt="Dashboard do NEXO PDV na tela de um celular, no tema escuro.">
+          <img class="so-claro" src="img/celular-dashboard-claro.webp" width="390" height="844" loading="lazy" alt="Dashboard do agi pdv na tela de um celular, com os cartões de vendas empilhados.">
+          <img class="so-escuro" src="img/celular-dashboard-escuro.webp" width="390" height="844" loading="lazy" alt="Dashboard do agi pdv na tela de um celular, no tema escuro.">
         </div>
         <p class="legenda">O dono pode olhar as vendas do dia pelo celular, desde que esteja na rede da loja. No celular o menu lateral vira uma gaveta. A frente de caixa foi desenhada para telas a partir de 1024 px.</p>
       </div>
@@ -500,7 +500,7 @@
       <li class="card passo">
         <span class="passo-num" aria-hidden="true">1</span>
         <h3>Baixe o instalador</h3>
-        <p><a href="https://github.com/thiagopfreire160/nexo-pdv/releases/latest/download/NEXO-PDV-Setup.exe">NEXO-PDV-Setup.exe</a>, com cerca de 150 MB. Instale no computador que vai ficar ligado na loja, de preferência o do caixa principal.</p>
+        <p><a href="https://github.com/thiagopfreire160/nexo-pdv/releases/latest/download/agi-pdv-Setup.exe">agi-pdv-Setup.exe</a>, com cerca de 150 MB. Instale no computador que vai ficar ligado na loja, de preferência o do caixa principal.</p>
       </li>
       <li class="card passo">
         <span class="passo-num" aria-hidden="true">2</span>
@@ -515,7 +515,7 @@
       <li class="card passo">
         <span class="passo-num" aria-hidden="true">4</span>
         <h3>Ligue os outros caixas</h3>
-        <p>No menu <strong>Loja → Endereço para os outros caixas</strong> aparece o endereço que os outros computadores abrem no navegador. O backup sai sozinho todo dia em Documentos\NEXO PDV\backups.</p>
+        <p>No menu <strong>Loja → Endereço para os outros caixas</strong> aparece o endereço que os outros computadores abrem no navegador. O backup sai sozinho todo dia em Documentos\agi pdv\backups.</p>
       </li>
     </ol>
     <p class="nota-dev">Vai mexer no código? As instruções para desenvolvedores estão no <a href="https://github.com/thiagopfreire160/nexo-pdv#readme">README do repositório</a>.</p>
@@ -546,10 +546,10 @@
 <footer class="rodape">
   <div class="container rodape-grade">
     <div>
-      <a class="marca" href="#" aria-label="NEXO PDV, voltar ao início">
-        <img class="so-claro" src="img/nexo-logo-claro.webp" alt="" width="30" height="30">
-        <img class="so-escuro" src="img/nexo-logo-escuro.webp" alt="" width="30" height="30">
-        <span class="marca-nome" aria-hidden="true"><b>NEXO</b> <span>PDV</span></span>
+      <a class="marca" href="#" aria-label="agi pdv, voltar ao início">
+        <img class="so-claro" src="img/agipdv-logo-claro.webp" alt="" width="30" height="30">
+        <img class="so-escuro" src="img/agipdv-logo-escuro.webp" alt="" width="30" height="30">
+        <span class="marca-nome" aria-hidden="true"><b>agi pdv</b> <span>PDV</span></span>
       </a>
       <p style="margin-top:14px">Distribuído sob a licença MIT. Você pode usar, modificar e redistribuir, inclusive em uso comercial.</p>
       <p>Ideia inspirada no Hórus PDV, de Flávio Oliveira.</p>
@@ -575,7 +575,7 @@
   }
   botaoTema.addEventListener('click', function () {
     var escuro = html.classList.toggle('dark');
-    try { localStorage.setItem('nexo-tema', escuro ? 'escuro' : 'claro'); } catch (e) {}
+    try { localStorage.setItem('agipdv-tema', escuro ? 'escuro' : 'claro'); } catch (e) {}
     rotuloTema();
   });
   rotuloTema();

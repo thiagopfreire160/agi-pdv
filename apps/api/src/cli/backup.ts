@@ -1,5 +1,5 @@
 // Cópia de segurança do banco: npm run backup
-// Gera backups/nexo-AAAA-MM-DD-HHMM.nexo.gz na raiz do projeto e apaga os mais antigos.
+// Gera backups/agipdv-AAAA-MM-DD-HHMM.agipdv.gz na raiz do projeto e apaga os mais antigos.
 // Funciona com o banco portátil (npm run db:local), com Docker ou com PostgreSQL instalado.
 import { createWriteStream, mkdirSync, readdirSync, rmSync, copyFileSync, existsSync } from 'node:fs';
 import { createGzip } from 'node:zlib';
@@ -15,7 +15,7 @@ const pastaExtra = process.env.BACKUP_PASTA_EXTRA?.trim();
 
 const agora = new Date();
 const p = (n: number) => String(n).padStart(2, '0');
-const nome = `nexo-${agora.getFullYear()}-${p(agora.getMonth() + 1)}-${p(agora.getDate())}-${p(agora.getHours())}${p(agora.getMinutes())}.nexo.gz`;
+const nome = `agipdv-${agora.getFullYear()}-${p(agora.getMonth() + 1)}-${p(agora.getDate())}-${p(agora.getHours())}${p(agora.getMinutes())}.agipdv.gz`;
 mkdirSync(pasta, { recursive: true });
 const destino = join(pasta, nome);
 
@@ -30,7 +30,7 @@ try {
     if (existsSync(pastaExtra)) copyFileSync(destino, join(pastaExtra, nome));
     else console.error(`Aviso: a pasta extra ${pastaExtra} não existe. A cópia extra não foi feita.`);
   }
-  const antigos = readdirSync(pasta).filter((f) => /^nexo-.*\.(nexo|sql)\.gz$/.test(f)).sort().reverse().slice(manter);
+  const antigos = readdirSync(pasta).filter((f) => /^agipdv-.*\.(agipdv|sql)\.gz$/.test(f)).sort().reverse().slice(manter);
   for (const f of antigos) rmSync(join(pasta, f));
 
   console.log(`Backup salvo em ${destino} (${r.tabelas} tabelas)${pastaExtra ? ` e copiado para ${pastaExtra}` : ''}.`);

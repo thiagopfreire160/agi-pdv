@@ -7,7 +7,7 @@ import path from 'node:path'
 
 const PASTA = path.resolve(import.meta.dirname, '../../../docs/capturas')
 
-async function entrar(page: Page, email = 'admin@nexo.local', senha = 'Admin@123') {
+async function entrar(page: Page, email = 'admin@agipdv.local', senha = 'Admin@123') {
   await page.goto('/entrar')
   await page.getByLabel('E-mail ou CPF').fill(email)
   await page.getByLabel('Senha', { exact: true }).fill(senha)
@@ -19,7 +19,7 @@ async function fecharCaixaSeAberto(page: Page) {
   const { sessao } = await (await page.request.get('/api/caixa/atual')).json()
   if (sessao) {
     await page.request.post('/api/caixa/fechar', {
-      headers: { 'X-Nexo-Csrf': '1' },
+      headers: { 'X-Agi-Csrf': '1' },
       data: { valor_contado: sessao.resumo.esperado_dinheiro ?? 0, observacao: 'Fechamento automático das capturas' },
     })
   }
@@ -110,7 +110,7 @@ for (const tema of ['claro', 'escuro'] as const) {
     })
 
     test(`caixa ${tema}`, async ({ page }) => {
-      await entrar(page, 'gerente@nexo.local', 'Gerente@123')
+      await entrar(page, 'gerente@agipdv.local', 'Gerente@123')
       await fecharCaixaSeAberto(page)
       await page.goto('/caixa')
       await expect(page.getByRole('heading', { name: 'Abrir o caixa' })).toBeVisible()

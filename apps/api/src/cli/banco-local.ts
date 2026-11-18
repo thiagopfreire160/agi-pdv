@@ -1,6 +1,6 @@
 // Banco de dados portátil: npm run db:local
 // Roda um PostgreSQL 16 dentro da pasta do projeto (pasta .banco), sem Docker e sem instalar nada.
-// Deixe a janela aberta enquanto o NEXO estiver em uso. Para desligar, feche a janela ou tecle Ctrl+C.
+// Deixe a janela aberta enquanto o agi pdv estiver em uso. Para desligar, feche a janela ou tecle Ctrl+C.
 import EmbeddedPostgres from 'embedded-postgres';
 import { existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -12,7 +12,7 @@ const raiz = resolve(dirname(fileURLToPath(import.meta.url)), '../../../..');
 const pasta = resolve(raiz, '.banco');
 const url = new URL(config.databaseUrl);
 const usuario = decodeURIComponent(url.username || 'postgres');
-const senha = decodeURIComponent(url.password || 'nexo');
+const senha = decodeURIComponent(url.password || 'agipdv');
 const porta = Number(url.port || 5432);
 
 const banco = new EmbeddedPostgres({
@@ -42,13 +42,13 @@ try {
 
   const cliente = new pg.Client({ host: 'localhost', port: porta, user: usuario, password: senha, database: 'postgres' });
   await cliente.connect();
-  for (const nome of ['nexo', 'nexo_test']) {
+  for (const nome of ['agipdv', 'agipdv_test']) {
     const existe = await cliente.query('select 1 from pg_database where datname = $1', [nome]);
     if (!existe.rowCount) await cliente.query(`create database ${nome}`);
   }
   await cliente.end();
 
-  console.log(`Banco ligado em localhost:${porta}. Deixe esta janela aberta enquanto usar o NEXO.`);
+  console.log(`Banco ligado em localhost:${porta}. Deixe esta janela aberta enquanto usar o agi pdv.`);
 } catch (e) {
   const msg = String((e as Error).message ?? e);
   if (/EADDRINUSE|already in use|5432/.test(msg)) {

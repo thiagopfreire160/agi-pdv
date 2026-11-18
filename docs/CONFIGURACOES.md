@@ -1,6 +1,6 @@
 # Resumo de configurações
 
-O NEXO se configura em dois lugares: o arquivo `.env` da API, para o servidor, e a tela **Configurações** do sistema, para as regras da loja.
+O agi pdv se configura em dois lugares: o arquivo `.env` da API, para o servidor, e a tela **Configurações** do sistema, para as regras da loja.
 
 ## 1. Arquivo `apps/api/.env` (servidor)
 
@@ -8,8 +8,8 @@ Copie `apps/api/.env.example` para `apps/api/.env`. Sem esse arquivo, o sistema 
 
 | Variável | Padrão | Para que serve | Mude quando |
 |---|---|---|---|
-| `DATABASE_URL` | `postgres://postgres:nexo@localhost:5432/nexo` | endereço do banco | o banco tiver outra senha ou estiver em outra máquina |
-| `DATABASE_URL_TESTE` | `.../nexo_test` | banco dos testes automáticos | só para desenvolvimento |
+| `DATABASE_URL` | `postgres://postgres:agipdv@localhost:5432/agipdv` | endereço do banco | o banco tiver outra senha ou estiver em outra máquina |
+| `DATABASE_URL_TESTE` | `.../agipdv_test` | banco dos testes automáticos | só para desenvolvimento |
 | `PORTA` | `3333` | porta da API | a porta já estiver em uso |
 | `HOST` | `0.0.0.0` | aceita conexões de outros computadores da rede | quiser restringir ao próprio computador (`127.0.0.1`) |
 | `SEGREDO_SESSAO` | texto de exemplo | protege as sessões de login | **sempre, antes de usar na loja**: coloque 32 ou mais caracteres aleatórios |
@@ -20,7 +20,7 @@ Copie `apps/api/.env.example` para `apps/api/.env`. Sem esse arquivo, o sistema 
 | `BACKUP_MANTER` | `30` | quantos backups guardar; os mais antigos são apagados | quiser guardar mais ou menos dias |
 | `BACKUP_PASTA_EXTRA` | vazio | pasta para uma segunda cópia de cada backup | **recomendado**: aponte para uma pasta do OneDrive ou do Google Drive, para ter cópia fora do computador |
 
-O banco portátil (`npm run db:local`) usa o usuário, a senha e a porta de `DATABASE_URL`, e guarda os dados na pasta `.banco`. Há também um `.env` na raiz, com `NEXO_SENHA_BANCO`, usado só se você preferir o Docker (`npm run db:up`); nesse caso ele precisa ter a mesma senha de `DATABASE_URL`.
+O banco portátil (`npm run db:local`) usa o usuário, a senha e a porta de `DATABASE_URL`, e guarda os dados na pasta `.banco`. Há também um `.env` na raiz, com `AGI_SENHA_BANCO`, usado só se você preferir o Docker (`npm run db:up`); nesse caso ele precisa ter a mesma senha de `DATABASE_URL`.
 
 ## 2. Tela Configurações (regras da loja)
 

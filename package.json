@@ -1,8 +1,8 @@
 {
-  "name": "nexo-pdv",
+  "name": "agi-pdv",
   "private": true,
   "version": "1.0.0",
-  "description": "NEXO PDV — ponto de venda para pequeno comércio",
+  "description": "agi pdv: ponto de venda para pequeno comércio",
   "workspaces": [
     "apps/*"
   ],

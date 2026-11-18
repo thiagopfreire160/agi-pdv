@@ -21,17 +21,17 @@ jobs:
       - run: npm run instalador
       - name: Cópia com nome fixo (para o link de download da landing)
         shell: pwsh
-        run: Copy-Item (Get-ChildItem instalador\NEXO-PDV-Setup-*.exe | Select -First 1).FullName instalador\NEXO-PDV-Setup.exe
+        run: Copy-Item (Get-ChildItem instalador\agi-pdv-Setup-*.exe | Select -First 1).FullName instalador\agi-pdv-Setup.exe
       - uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          name: NEXO PDV ${{ github.ref_name }}
+          name: agi pdv ${{ github.ref_name }}
           body: |
-            Instalador para Windows 10 e 11. Baixe o **NEXO-PDV-Setup.exe**, rode e siga as telas.
+            Instalador para Windows 10 e 11. Baixe o **agi-pdv-Setup.exe**, rode e siga as telas.
 
             Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações** e depois em **Executar assim mesmo**. O aviso aparece porque o instalador ainda não tem assinatura digital.
 
             Tutorial: https://github.com/thiagopfreire160/nexo-pdv/blob/main/docs/TUTORIAL.md
           files: |
-            instalador/NEXO-PDV-Setup.exe
-            instalador/NEXO-PDV-Setup-*.exe
+            instalador/agi-pdv-Setup.exe
+            instalador/agi-pdv-Setup-*.exe

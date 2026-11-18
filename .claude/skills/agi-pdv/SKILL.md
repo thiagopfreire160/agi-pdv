@@ -1,9 +1,9 @@
 ---
-name: nexo-pdv
-description: Como o NEXO PDV funciona e como mantê-lo. Use em qualquer alteração, correção, tela nova, regra nova, integração ou dúvida sobre o projeto NEXO PDV (ponto de venda React + Fastify + PostgreSQL).
+name: agi-pdv
+description: Como o agi pdv funciona e como mantê-lo. Use em qualquer alteração, correção, tela nova, regra nova, integração ou dúvida sobre o projeto agi pdv (ponto de venda React + Fastify + PostgreSQL).
 ---
 
-# NEXO PDV
+# agi pdv
 
 Ponto de venda para pequeno comércio brasileiro, uma empresa por instalação. Monorepo com npm workspaces:
 
@@ -17,7 +17,7 @@ site/      landing page estática
 
 ## Regras que não mudam
 
-1. **Clean room.** O NEXO foi escrito do zero a partir de `docs/especificacao.md`. Nunca abra, copie ou consulte o código do Hórus PDV nem de outro PDV. Comportamento novo é escrito primeiro na especificação, com palavras próprias, e só depois implementado.
+1. **Clean room.** O agi pdv foi escrito do zero a partir de `docs/especificacao.md`. Nunca abra, copie ou consulte o código do Hórus PDV nem de outro PDV. Comportamento novo é escrito primeiro na especificação, com palavras próprias, e só depois implementado.
 2. **Simples primeiro.** O dono quer um sistema fácil de usar, ensinar e aprender. Antes de adicionar campo, passo ou tela, pergunte se dá para resolver com menos. Campo opcional é melhor que obrigatório; um clique é melhor que dois.
 3. **Dinheiro em centavos inteiros**, sempre, da API ao front. Formatar como R$ só na exibição.
 4. **Permissão é checada na API.** Esconder um botão no front não basta.
@@ -57,7 +57,7 @@ Os módulos da API são: auditoria, auth, autorizacoes, caixa, categorias, clien
 - Plus Jakarta Sans. Números de dinheiro, quantidade e hora com a classe `tabular`.
 - Cards brancos com raio de 20px e sombra suave, sem borda. Campos e botões com raio de 12px e altura de 44px (48px no caixa).
 - Status em pílula com fundo suave (ok, aviso, erro, info). Vermelho sólido só em ação destrutiva.
-- Logo: `nexo-logo-claro.png` em fundo claro, `nexo-logo-escuro.png` em fundo escuro.
+- Logo: `agipdv-logo-claro.png` em fundo claro, `agipdv-logo-escuro.png` em fundo escuro.
 - A frente de caixa é tela cheia, sem sidebar, com os atalhos (F2, F3, F4, F6, F8, F9, Esc, 1 a 5) em chips no rodapé.
 
 ## Regras de texto
@@ -75,23 +75,23 @@ npm run db:up                    # alternativa: Postgres no Docker (mesma porta;
 npm run db:migrar
 npm run db:semente -- --limpar   # loja de exemplo (APAGA o banco)
 npm run dev                      # API :3333 + web :5173
-npm test                         # testes da API (banco nexo_test)
+npm test                         # testes da API (banco agipdv_test)
 npm run build
 npm run admin:senha -- email     # senha temporária para o admin
 npm run loja                     # build + migração + liga em :3333 (API serve as telas)
 npm run iniciar                  # liga o modo loja sem rebuild
-npm run backup                   # backups/nexo-AAAA-MM-DD-HHMM.nexo.gz via COPY (src/db/copia.ts), guarda 30
+npm run backup                   # backups/agipdv-AAAA-MM-DD-HHMM.agipdv.gz via COPY (src/db/copia.ts), guarda 30
 npm run restaurar -- arquivo     # pede confirmação; troca todos os dados
-npm run instalador               # (Windows) gera instalador/NEXO-PDV-Setup-<versão>.exe
+npm run instalador               # (Windows) gera instalador/agi-pdv-Setup-<versão>.exe
 # Lançar versão: suba "version" no package.json da raiz, commit, git tag vX.Y.Z, git push origin vX.Y.Z
 # (o workflow .github/workflows/instalador.yml gera o .exe num Windows do GitHub e publica em Releases)
 ```
 
-No Windows: `ferramentas/iniciar-nexo.bat` (abre banco portátil + sistema em duas janelas), `ferramentas/agendar-backup.bat` (backup diário às 22h no Agendador de Tarefas).
+No Windows: `ferramentas/iniciar-agipdv.bat` (abre banco portátil + sistema em duas janelas), `ferramentas/agendar-backup.bat` (backup diário às 22h no Agendador de Tarefas).
 
-Segredos ficam em `.env` (raiz: NEXO_SENHA_BANCO) e `apps/api/.env` (DATABASE_URL, SEGREDO_SESSAO); nunca vão para o git.
+Segredos ficam em `.env` (raiz: AGI_SENHA_BANCO) e `apps/api/.env` (DATABASE_URL, SEGREDO_SESSAO); nunca vão para o git.
 
-Logins da semente: admin@nexo.local / Admin@123, gerente@nexo.local / Gerente@123, caixa@nexo.local / Caixa@123.
+Logins da semente: admin@agipdv.local / Admin@123, gerente@agipdv.local / Gerente@123, caixa@agipdv.local / Caixa@123.
 
 ## Antes de dar por pronto
 

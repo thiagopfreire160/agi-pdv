@@ -1,4 +1,4 @@
-# Tutorial do NEXO PDV
+# Tutorial do agi pdv
 
 Este guia tem duas partes. A primeira é para quem vai **instalar** o sistema. A segunda é para quem vai **usar e ensinar**: dono, gerente e operador de caixa.
 
@@ -8,15 +8,15 @@ Este guia tem duas partes. A primeira é para quem vai **instalar** o sistema. A
 
 ### Jeito mais fácil: o instalador (Windows)
 
-1. Rode **`NEXO-PDV-Setup-1.0.0.exe`**.
+1. Rode **`agi-pdv-Setup-1.0.0.exe`**.
 2. Como o instalador ainda não tem assinatura digital, o Windows pode mostrar "O Windows protegeu o computador". Clique em **Mais informações** e depois em **Executar assim mesmo**.
-3. Siga o instalador. Ele cria o atalho **NEXO PDV** na área de trabalho e no menu Iniciar.
-4. Abra o NEXO PDV. Na primeira vez ele prepara o banco de dados sozinho e mostra o **primeiro acesso**, onde você cadastra a loja e o administrador.
+3. Siga o instalador. Ele cria o atalho **agi pdv** na área de trabalho e no menu Iniciar.
+4. Abra o agi pdv. Na primeira vez ele prepara o banco de dados sozinho e mostra o **primeiro acesso**, onde você cadastra a loja e o administrador.
 
 Não precisa de Node, terminal nem Docker. O que o programa já faz sozinho:
 
-- **Dados:** ficam em `%APPDATA%\NexoPDV`.
-- **Backup:** sai um por dia, guardado em **Documentos\NEXO PDV\backups**. Se a pasta Documentos estiver no OneDrive, o backup vai para a nuvem automaticamente.
+- **Dados:** ficam em `%APPDATA%\AgiPDV`.
+- **Backup:** sai um por dia, guardado em **Documentos\agi pdv\backups**. Se a pasta Documentos estiver no OneDrive, o backup vai para a nuvem automaticamente.
 - **Menus:** em **Arquivo**, você faz backup na hora, restaura um backup e liga a opção de abrir junto com o Windows. Em **Loja → Endereço para os outros caixas**, aparece o endereço que os outros computadores abrem no navegador.
 
 Para gerar um instalador novo depois de mudar o código: `npm run instalador`. O arquivo sai na pasta `instalador`.
@@ -27,7 +27,7 @@ Para gerar um instalador novo depois de mudar o código: `npm run instalador`. O
 
 - **Node.js 22** ou mais novo (nodejs.org, versão LTS). Só isso.
 
-O banco de dados vem junto com o NEXO: é um PostgreSQL portátil que fica na pasta `.banco` do projeto. Não precisa instalar Docker nem PostgreSQL.
+O banco de dados vem junto com o agi pdv: é um PostgreSQL portátil que fica na pasta `.banco` do projeto. Não precisa instalar Docker nem PostgreSQL.
 
 ### Primeira vez
 
@@ -47,21 +47,21 @@ npm run db:migrar      # cria as tabelas
 npm run dev            # liga o sistema
 ```
 
-Abra **http://localhost:5173** no navegador. Como o banco está vazio, o NEXO abre o **primeiro acesso**: você informa os dados da loja e cria o usuário administrador. Pronto, já pode cadastrar produtos.
+Abra **http://localhost:5173** no navegador. Como o banco está vazio, o agi pdv abre o **primeiro acesso**: você informa os dados da loja e cria o usuário administrador. Pronto, já pode cadastrar produtos.
 
 Para testar com uma loja de exemplo cheia de dados, rode `npm run db:semente -- --limpar` antes do `npm run dev` e entre com um destes usuários:
 
 | Perfil | E-mail | Senha |
 |---|---|---|
-| Administrador | admin@nexo.local | Admin@123 |
-| Gerente | gerente@nexo.local | Gerente@123 |
-| Caixa | caixa@nexo.local | Caixa@123 |
+| Administrador | admin@agipdv.local | Admin@123 |
+| Gerente | gerente@agipdv.local | Gerente@123 |
+| Caixa | caixa@agipdv.local | Caixa@123 |
 
 O `--limpar` **apaga tudo** que estiver no banco. Não use na loja de verdade.
 
 ### Nos dias seguintes
 
-Dê dois cliques em **`ferramentas\iniciar-nexo.bat`**. Ele abre uma janela para o banco e outra para o sistema. Deixe as duas abertas enquanto a loja funciona.
+Dê dois cliques em **`ferramentas\iniciar-agipdv.bat`**. Ele abre uma janela para o banco e outra para o sistema. Deixe as duas abertas enquanto a loja funciona.
 
 Se você já usa Docker, pode trocar o `npm run db:local` por `npm run db:up`. Os dois ocupam a mesma porta, então use só um deles.
 
@@ -70,22 +70,22 @@ Se você já usa Docker, pode trocar o `npm run db:local` por `npm run db:up`. O
 O `npm run dev` serve para testar e fazer mudanças. Na loja, use o modo loja, que é mais leve e usa um endereço só:
 
 ```bash
-npm run loja        # prepara tudo e liga o sistema (use depois de atualizar o NEXO)
+npm run loja        # prepara tudo e liga o sistema (use depois de atualizar o agi pdv)
 npm run iniciar     # só liga, nos dias seguintes
 ```
 
 Abra **http://localhost:3333** no computador servidor. Nos outros computadores da loja, abra `http://IP-DO-SERVIDOR:3333` (o IP aparece com o comando `ipconfig`, na linha "Endereço IPv4"). Não precisa instalar nada neles: basta o navegador.
 
-Crie um atalho de **`ferramentas\iniciar-nexo.bat`** na área de trabalho ou na pasta Inicializar do Windows para o NEXO ligar junto com o computador.
+Crie um atalho de **`ferramentas\iniciar-agipdv.bat`** na área de trabalho ou na pasta Inicializar do Windows para o agi pdv ligar junto com o computador.
 
 ### Backup
 
 O backup copia o banco inteiro para um arquivo na pasta `backups`.
 
-- **Automático:** clique duas vezes em **`ferramentas\agendar-backup.bat`** uma única vez. A partir daí, o Windows faz o backup todo dia às 22h e guarda os últimos 30. O computador precisa estar ligado, com o NEXO aberto, nesse horário.
+- **Automático:** clique duas vezes em **`ferramentas\agendar-backup.bat`** uma única vez. A partir daí, o Windows faz o backup todo dia às 22h e guarda os últimos 30. O computador precisa estar ligado, com o agi pdv aberto, nesse horário.
 - **Na hora:** `npm run backup`.
 - **Cópia fora do computador:** em `apps/api/.env`, preencha `BACKUP_PASTA_EXTRA` com uma pasta do OneDrive ou do Google Drive. Se o computador queimar, o backup continua na nuvem.
-- **Restaurar:** `npm run restaurar -- backups\nome-do-arquivo.nexo.gz`. O sistema pede para digitar RESTAURAR antes, porque isso troca todos os dados atuais pelos do arquivo.
+- **Restaurar:** `npm run restaurar -- backups\nome-do-arquivo.agipdv.gz`. O sistema pede para digitar RESTAURAR antes, porque isso troca todos os dados atuais pelos do arquivo.
 
 Faça um teste de restauração uma vez por mês num computador separado. Backup que nunca foi testado pode não servir na hora que precisar.
 
@@ -135,7 +135,7 @@ A quantidade inicial entra pelo **Estoque → Entrada de mercadoria**, e não pe
 5. Em dinheiro, o troco aparece sozinho.
 6. **Finalizar venda**. O recibo pode ser impresso.
 
-Cartão e PIX são passados na maquininha, como sempre. O NEXO só registra a forma de pagamento.
+Cartão e PIX são passados na maquininha, como sempre. O agi pdv só registra a forma de pagamento.
 
 ### Atalhos do caixa
 
@@ -190,7 +190,7 @@ Menu **Relatórios**: escolha o relatório, o período e clique em **Gerar**. O 
 
 ## Roteiro para treinar um operador em 30 minutos
 
-Use a loja de exemplo (`npm run db:semente -- --limpar`) e o usuário `caixa@nexo.local`.
+Use a loja de exemplo (`npm run db:semente -- --limpar`) e o usuário `caixa@agipdv.local`.
 
 | Minutos | Atividade |
 |---|---|

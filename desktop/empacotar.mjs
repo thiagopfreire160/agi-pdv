@@ -1,5 +1,5 @@
 // Gera o instalador do Windows: npm run instalador (rode no Windows).
-// Resultado: instalador/NEXO-PDV-Setup-<versão>.exe
+// Resultado: instalador/agi-pdv-Setup-<versão>.exe
 import { build } from 'esbuild';
 import { execSync } from 'node:child_process';
 import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync, readdirSync, copyFileSync } from 'node:fs';
@@ -46,10 +46,10 @@ writeFileSync(
   join(palco, 'package.json'),
   JSON.stringify(
     {
-      name: 'nexo-pdv',
-      productName: 'NEXO PDV',
+      name: 'agi-pdv',
+      productName: 'agi pdv',
       version: versao,
-      description: 'NEXO PDV — ponto de venda para pequeno comércio',
+      description: 'agi pdv: ponto de venda para pequeno comércio',
       author: 'Thiago Pereira',
       license: 'MIT',
       main: 'main.mjs',
@@ -57,8 +57,8 @@ writeFileSync(
       dependencies: Object.fromEntries(nativos.map((n) => [n, depsApi[n]])),
       devDependencies: { electron: '45.3.2', 'electron-builder': '26.18.0' },
       build: {
-        appId: 'br.nexopdv.app',
-        productName: 'NEXO PDV',
+        appId: 'br.agipdv.app',
+        productName: 'agi pdv',
         copyright: 'Copyright (c) 2026 Thiago Pereira',
         asar: false,
         directories: { output: 'dist', buildResources: 'build' },
@@ -70,8 +70,8 @@ writeFileSync(
           allowToChangeInstallationDirectory: true,
           createDesktopShortcut: true,
           createStartMenuShortcut: true,
-          shortcutName: 'NEXO PDV',
-          artifactName: 'NEXO-PDV-Setup-${version}.exe',
+          shortcutName: 'agi pdv',
+          artifactName: 'agi-pdv-Setup-${version}.exe',
           installerLanguages: ['pt_BR'],
           language: '1046',
           deleteAppDataOnUninstall: false,

@@ -4,7 +4,7 @@ import { expect, test, type Page } from '@playwright/test'
 // confere no histórico e fecha o caixa com contagem cega.
 // Pré-requisitos: API em :3333 com a semente de demonstração e o front em :5173.
 
-const ADMIN = { email: 'admin@nexo.local', senha: 'Admin@123' }
+const ADMIN = { email: 'admin@agipdv.local', senha: 'Admin@123' }
 const ARROZ = '7891000000007' // Arroz Tipo 1 5kg — R$ 26,90
 const ACUCAR = '7891015838022' // Açúcar Refinado 1kg — R$ 4,99
 
@@ -23,7 +23,7 @@ async function garantirCaixaFechado(page: Page) {
   if (!sessao) return
   const esperado = sessao.resumo.esperado_dinheiro ?? 0
   await page.request.post('/api/caixa/fechar', {
-    headers: { 'X-Nexo-Csrf': '1' },
+    headers: { 'X-Agi-Csrf': '1' },
     data: { valor_contado: esperado, observacao: 'Fechamento automático do teste de fumaça' },
   })
 }
@@ -59,7 +59,7 @@ test('fluxo completo de venda no caixa', async ({ page }) => {
   await expect(page.locator('[data-teste="total"]')).toHaveText('R$ 36,88')
 
   // 4. Venda em andamento fica guardada no navegador (recarregar não perde)
-  const guardada = await page.evaluate(() => JSON.parse(localStorage.getItem('nexo-venda-andamento') ?? 'null'))
+  const guardada = await page.evaluate(() => JSON.parse(localStorage.getItem('agipdv-venda-andamento') ?? 'null'))
   expect(guardada?.itens).toHaveLength(2)
   expect(guardada?.id).toMatch(/[0-9a-f-]{36}/)
 
@@ -126,7 +126,7 @@ test('fluxo completo de venda no caixa', async ({ page }) => {
 
 test('caixa pede autorização do gerente para desconto acima do limite', async ({ page }) => {
   await page.goto('/entrar')
-  await page.getByLabel('E-mail ou CPF').fill('caixa@nexo.local')
+  await page.getByLabel('E-mail ou CPF').fill('caixa@agipdv.local')
   await page.getByLabel('Senha', { exact: true }).fill('Caixa@123')
   await page.getByRole('button', { name: 'Entrar' }).click()
   await page.waitForURL('**/caixa')
@@ -149,7 +149,7 @@ test('caixa pede autorização do gerente para desconto acima do limite', async 
   await desconto.getByRole('button', { name: 'Aplicar desconto' }).click()
   const aut = page.getByRole('dialog', { name: 'Autorização do gerente' })
   await expect(aut).toBeVisible()
-  await aut.getByLabel('E-mail ou CPF de quem autoriza').fill('gerente@nexo.local')
+  await aut.getByLabel('E-mail ou CPF de quem autoriza').fill('gerente@agipdv.local')
   await aut.getByLabel('Senha').fill('Gerente@123')
   await aut.getByRole('button', { name: 'Autorizar' }).click()
   await expect(aut).toBeHidden()

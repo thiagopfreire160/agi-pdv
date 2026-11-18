@@ -50,7 +50,7 @@ export function useSair() {
       })
       if (ok === null) return
       try {
-        localStorage.removeItem('nexo-venda-andamento')
+        localStorage.removeItem('agipdv-venda-andamento')
       } catch {
         /* ignora */
       }

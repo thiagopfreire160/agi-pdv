@@ -52,12 +52,13 @@ Os módulos da API são: auditoria, auth, autorizacoes, caixa, categorias, clien
 
 ## Design system (resumo; detalhe em docs/design-system.md)
 
-- Use só classes semânticas: `bg-fundo`, `bg-superficie`, `bg-superficie-2`, `text-texto`, `text-texto-2`, `text-texto-3`, `border-borda`, `bg-primaria`, `text-destaque`. Nunca hexadecimal em componente; é isso que mantém o tema escuro funcionando (classe `.dark` no `<html>`).
-- Primária verde-floresta `#1f5e3b` (no escuro, broto `#2fd657`). O verde do logo `#00ca28` é acento de gráficos e indicadores.
-- Plus Jakarta Sans. Números de dinheiro, quantidade e hora com a classe `tabular`.
-- Cards brancos com raio de 20px e sombra suave, sem borda. Campos e botões com raio de 12px e altura de 44px (48px no caixa).
-- Status em pílula com fundo suave (ok, aviso, erro, info). Vermelho sólido só em ação destrutiva.
-- Logo: `agipdv-logo-claro.png` em fundo claro, `agipdv-logo-escuro.png` em fundo escuro.
+- Use só classes semânticas: `bg-fundo`, `bg-superficie`, `bg-superficie-2`, `bg-selecao`, `bg-veu`, `text-texto`, `text-texto-2`, `text-texto-3`, `border-borda`, `bg-primaria`, `text-sobre-primaria`, `text-destaque`. Nunca hexadecimal em componente; é isso que mantém os dois temas funcionando (classe `.dark` no `<html>`).
+- Identidade preta e dourada. Tema escuro é o padrão: preto `#0B0B0C`, grafite `#1A1A1C`, primária dourada `#D4AF37`. No claro: fundo creme `#F2ECE1`, primária preta, destaque em dourado escuro `#7A5C0E` (o dourado normal não tem contraste no creme). O dourado aparece pouco.
+- `.card-destaque` e `.card-escuro` são sempre escuros; dentro deles use `text-creme`, `text-creme-2`, `text-ouro-claro`.
+- Fontes locais via @fontsource: Geist no texto, Inter Tight nos títulos (`font-titulo`), JetBrains Mono em atalhos e rótulos (`font-mono`), Instrument Serif itálico só na tela de acesso (`font-serifa`). Números de dinheiro, quantidade e hora com a classe `tabular`.
+- Cards com raio de 18px; sombra suave no claro, filete de 1px no escuro. Botões em pílula, campos com raio de 12px, altura de 44px (48px no caixa).
+- Status em pílula com fundo suave (ok, aviso, erro, info), com par claro e escuro. Vermelho sólido só em ação destrutiva.
+- Logo: componente `Logo` (símbolo `agi-simbolo.png` + "agi" 800 e "pdv" 300 dourado). Nome sempre `agi pdv`, minúsculo. Nada com ".hub".
 - A frente de caixa é tela cheia, sem sidebar, com os atalhos (F2, F3, F4, F6, F8, F9, Esc, 1 a 5) em chips no rodapé.
 
 ## Regras de texto

@@ -31,7 +31,7 @@ interface PropsKpi {
   aoClicar?: () => void
 }
 
-/** KPI do dashboard. O primeiro usa `destaque` (gradiente verde e seta no círculo). */
+/** KPI do dashboard. O primeiro usa `destaque` (card escuro com halo dourado e seta no círculo). */
 export function CardKpi({ titulo, valor, rodape, destaque, variacao, icone, aoClicar }: PropsKpi) {
   const subiu = (variacao ?? 0) >= 0
   return (

@@ -249,7 +249,7 @@ function MaisVendidos({ d }: { d: TDashboard }) {
             const v = por === 'quantidade' ? p.quantidade : p.valor
             return (
               <li key={p.produto_id} className="flex items-center gap-3">
-                <span className={`flex size-8 shrink-0 items-center justify-center rounded-full text-xs font-bold ${i === 0 ? 'bg-primaria text-sobre-primaria' : 'bg-selecao text-destaque
+                <span className={`flex size-8 shrink-0 items-center justify-center rounded-full text-xs font-bold ${i === 0 ? 'bg-primaria text-sobre-primaria' : 'bg-selecao text-destaque'}`}>
                   {i + 1}
                 </span>
                 <div className="min-w-0 flex-1">

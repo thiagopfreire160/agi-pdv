@@ -80,7 +80,7 @@ Todo valor em dinheiro, quantidade ou hora usa a classe `tabular`. Serifada itá
 
 ## Gráficos
 
-Recharts. A série principal usa `destaque` com área em gradiente (28% → 0%). Por forma de pagamento: dinheiro `destaque`, PIX `texto`, débito `ouro-claro`, crédito `aviso-fg`, vale-troca `texto-3`. Sem grade vertical, com grade horizontal tracejada em `borda`. Tooltip em card.
+Recharts. A série principal usa `destaque` com área em gradiente (28% → 0%). Por forma de pagamento: dinheiro `destaque`, PIX `texto`, débito `ouro-claro`, crédito `texto-2`, vale-troca `texto-3`. Sem grade vertical, com grade horizontal tracejada em `borda`. Tooltip em card.
 
 ## Texto da interface
 

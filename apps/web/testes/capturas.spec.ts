@@ -7,12 +7,15 @@ import path from 'node:path'
 
 const PASTA = path.resolve(import.meta.dirname, '../../../docs/capturas')
 
-async function entrar(page: Page, email = 'admin@agipdv.local', senha = 'Admin@123') {
+async function entrar(page: Page, tema: string, email = 'admin@agipdv.local', senha = 'Admin@123') {
   await page.goto('/entrar')
   await page.getByLabel('E-mail ou CPF').fill(email)
   await page.getByLabel('Senha', { exact: true }).fill(senha)
   await page.getByRole('button', { name: 'Entrar' }).click()
   await page.waitForURL((u) => !u.pathname.startsWith('/entrar'))
+  // O tema vem do perfil do usuário (padrão escuro): grava o da captura e recarrega.
+  await page.request.put('/api/auth/perfil', { headers: { 'X-Agi-Csrf': '1' }, data: { tema } })
+  await page.reload()
 }
 
 async function fecharCaixaSeAberto(page: Page) {
@@ -34,6 +37,9 @@ async function foto(page: Page, nome: string, tema: string) {
 for (const tema of ['claro', 'escuro'] as const) {
   test.describe(`capturas ${tema}`, () => {
     test.use({ colorScheme: tema === 'claro' ? 'light' : 'dark', viewport: { width: 1440, height: 900 } })
+    test.beforeEach(async ({ page }) => {
+      await page.addInitScript((t) => { try { localStorage.setItem('agipdv-tema', t) } catch {} }, tema)
+    })
 
     test(`acesso ${tema}`, async ({ page }) => {
       await page.goto('/entrar')
@@ -47,7 +53,7 @@ for (const tema of ['claro', 'escuro'] as const) {
     })
 
     test(`telas ${tema}`, async ({ page }) => {
-      await entrar(page)
+      await entrar(page, tema)
       await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible()
       await expect(page.getByText('Mais vendidos')).toBeVisible()
       await foto(page, 'dashboard', tema)
@@ -110,7 +116,7 @@ for (const tema of ['claro', 'escuro'] as const) {
     })
 
     test(`caixa ${tema}`, async ({ page }) => {
-      await entrar(page, 'gerente@agipdv.local', 'Gerente@123')
+      await entrar(page, tema, 'gerente@agipdv.local', 'Gerente@123')
       await fecharCaixaSeAberto(page)
       await page.goto('/caixa')
       await expect(page.getByRole('heading', { name: 'Abrir o caixa' })).toBeVisible()
@@ -156,7 +162,7 @@ for (const tema of ['claro', 'escuro'] as const) {
 
     test(`celular ${tema}`, async ({ page }) => {
       await page.setViewportSize({ width: 390, height: 844 })
-      await entrar(page)
+      await entrar(page, tema)
       await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible()
       await page.waitForTimeout(800)
       await page.screenshot({ path: path.join(PASTA, `celular-dashboard-${tema}.png`) })

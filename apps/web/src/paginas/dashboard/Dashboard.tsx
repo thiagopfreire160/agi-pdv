@@ -22,7 +22,7 @@ const CORES_FORMA: Record<string, string> = {
   dinheiro: 'var(--destaque)',
   pix: 'var(--texto)',
   debito: 'var(--color-ouro-claro)',
-  credito: 'var(--aviso-fg)',
+  credito: 'var(--texto-2)',
   vale_troca: 'var(--texto-3)',
 }
 
